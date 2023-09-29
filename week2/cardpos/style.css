@@ -1,9 +1,9 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-.card{
+.card {
     width: 20%;
     box-shadow: rgba(41, 41, 43, 0.2) 0px 7px 29px 0px;
     margin: auto;
@@ -11,31 +11,37 @@
 
 
 }
-img{
+
+img {
     width: 100%;
 }
-.imag{
+
+.imag {
     overflow: hidden;
 }
-h1{
+
+h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     font-size: large;
     font-weight: 800;
     padding: 20px;
 }
-.info{
-    background-image: linear-gradient(to right,  rgb(83, 0, 0), rgb(170, 18, 18));
+
+.info {
+    background-image: linear-gradient(to right, rgb(83, 0, 0), rgb(170, 18, 18));
     text-align: center;
     padding: 20px;
     position: relative;
 
 }
-p{
+
+p {
     color: white;
     font-family: "Onest";
 }
-button{
+
+button a{
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 20px;
@@ -47,17 +53,25 @@ button{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: absolute;
     left: 140px;
+    /*use calc add width to button */
     bottom: -20px;
+    text-decoration: none;
 }
 
-.info, .card{
-border-bottom-left-radius: 15px;
-border-bottom-right-radius: 15px;
+.info,
+.card {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
-li{
+
+li {
     list-style-type: none;
     display: inline-block;
     margin: 10px;
     font-size: 20px;
     color: black;
+}
+button:hover{
+    transition: 300ms;
+    background-color: rgb(58, 21, 21);
 }
