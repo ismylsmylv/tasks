@@ -5,7 +5,7 @@
 
 .card{
     width: 20%;
-    box-shadow: 5px 5px 5px gray;
+    box-shadow: rgba(41, 41, 43, 0.2) 0px 7px 29px 0px;
     margin: auto;
     margin-top: 40px;
 
@@ -59,4 +59,5 @@ li{
     display: inline-block;
     margin: 10px;
     font-size: 20px;
+    color: black;
 }
