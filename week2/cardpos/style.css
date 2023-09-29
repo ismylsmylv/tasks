@@ -41,7 +41,7 @@ p {
     font-family: "Onest";
 }
 
-button a{
+button {
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 20px;
@@ -55,9 +55,9 @@ button a{
     left: 140px;
     /*use calc add width to button */
     bottom: -20px;
-    text-decoration: none;
-}
 
+}
+a{    text-decoration: none;}
 .info,
 .card {
     border-bottom-left-radius: 15px;
