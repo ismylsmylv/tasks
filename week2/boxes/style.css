@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    text-align: center;
+    font-weight: 900;
+    font-size: larger;
+}
+
+.main {
+    position: relative;
+    border: 5px dashed black;
+    width: 80%;
+    height: 500px;
+    display: inline-flex;
+    margin-top: 40px;
+}
+
+.red {
+
+    top: 0;
+    left: 0;
+    background-color: red;
+}
+
+.orange {
+
+    top: 0;
+    right: 0;
+    background-color: orange;
+}
+
+.cyan {
+
+    background-color: cyan;
+    top: calc(50% - 45px);
+    right: calc(50% - 90px);
+}
+
+.yellow {
+
+    bottom: 0;
+    left: 0;
+    background-color: yellow;
+}
+
+.green {
+
+    bottom: 0;
+    right: 0;
+    background-color: green;
+}
+
+.red,
+.orange,
+.cyan,
+.green,
+.yellow {
+    height: 90px;
+    width: 180px;
+    position: absolute;
+}

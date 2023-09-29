@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.card{
+    width: 20%;
+    box-shadow: 5px 5px 5px gray;
+    margin: auto;
+    margin-top: 40px;
+
+
+}
+img{
+    width: 100%;
+}
+.imag{
+    overflow: hidden;
+}
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: large;
+    font-weight: 800;
+    padding: 20px;
+}
+.info{
+    background-image: linear-gradient(to right,  rgb(83, 0, 0), rgb(170, 18, 18));
+    text-align: center;
+    padding: 20px;
+    position: relative;
+
+}
+p{
+    color: white;
+    font-family: "Onest";
+}
+button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgb(97, 34, 34);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    left: 140px;
+    bottom: -20px;
+}
+
+.info, .card{
+border-bottom-left-radius: 15px;
+border-bottom-right-radius: 15px;
+}
+li{
+    list-style-type: none;
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+}
