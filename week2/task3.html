@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reg Student</title>
+</head>
+
+<body>
+    <h1>Register Student Form</h1>
+    <form action="">
+        <div>
+            <label for="fname">Full Name</label>
+            <input type="text" name="fname" required placeholder="Enter Full Name">
+        </div>
+        <br>
+        <div>
+            <label for="number">Age</label>
+            <input type="number" name="age" id="age" min="18" placeholder="Enter your Age">
+        </div>
+        <br>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email">
+        </div>
+        <br>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter your password">
+        </div>
+        <br>
+        <div>
+            <label for="password">Repeat password</label>
+            <input type="password" name="password" id="password" placeholder="Repeat your password">
+        </div>
+        <br>
+        <div>
+            <label for="checkbox">Terms of Use</label>
+            <input type="checkbox">
+        </div>
+        <br>
+        <div>
+            <label for="radio">Select your gender: </label>
+            Male<input type="radio" name="gen">
+            Female<input type="radio" name="gen">
+        </div>
+        <br>
+        <div>
+            <label for="date">Select your birthdate</label>
+            <input type="date">
+        </div>
+        <br>
+        <div>
+            <label for="file">Upload file</label>
+            <input type="file" name="file" id="file" accept="image/png image/jpg">
+        </div>
+        <br>
+        <div>
+            <label for="color">Hair Color</label>
+            <input type="color">
+        </div>
+        <br>
+        <div>
+            <label for="range">Credit</label>
+            <input type="range">
+        </div>
+        <br>
+        <div>
+            <label for="options">Choose your Nationality</label>
+            <select name="options" id="options">
+                <optgroup label="Europe">
+                    <option value="1">White</option>
+                    <option value="2">Asian</option>
+                </optgroup>
+                <optgroup label="Asian">
+                    <option value="1">Chinese</option>
+                    <option value="2">Korean</option>
+                    <option value="2">Japanese</option>
+                </optgroup>
+            </select>
+        </div> <br>
+        <button disabled>Register New Student</button>
+        <input type="reset">
+    </form>
+</body>
+
+</html>

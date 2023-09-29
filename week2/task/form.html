@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="./styles/style3.css">
+</head>
+
+<body>
+    <nav>
+        <a href="./form.html">Form</a>
+        <a href="./table.html">Table</a>
+        <a href="./login.html">Login</a>
+    </nav>
+    <h1>Leave an opinion</h1>
+    <form action="">
+        <div>
+            <label for="">First Name</label>
+            <input type="text" required name="fname">
+        </div>
+        <br>
+        <div>
+            <label for="">Last Name</label>
+            <input type="text" required name="lname">
+        </div>
+        <br>
+        <div>
+            <label for="">Email:</label>
+            <input type="email">
+        </div>
+        <br>
+        <div>
+            <label for="Department">Department</label>
+            <select name="options" id="options">
+                <option value="IT">IT</option>
+                <option value="Staff">Staff</option>
+                <option value="HR">HR</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label for="">Position</label>
+            <input type="text">
+        </div>
+        <br>
+        <div>
+            <label for="">Salary</label>
+            <input type="number" min="500" max="5000" step="20">
+        </div>
+        <br>
+        <button>Submit</button>
+        <input type="reset">
+    </form>
+</body>
+
+</html>
