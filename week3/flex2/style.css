@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.cont {
+    display: flex;
+    border: 5px solid red;
+    height: fit-content;
+    flex-direction: column;
+    justify-content: stretch;
+    width: 100%;
+}
+
+.box {
+    height: 100px;
+    width: 100vw;
+    color: white;
+    font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.box1 {
+    background-color: rgb(32, 158, 116);
+}
+
+.box2 {
+    background-color: rgb(77, 78, 182);
+}
+
+.box3 {
+    background-color: rgb(107, 0, 66);
+}
+
+.box4 {
+    background-color: rgb(0, 5, 48);
+}
+
+.box5 {
+    background-color: rgb(223, 186, 23);
+}
+
+.box6 {
+    background-color: rgb(180, 123, 0);
+}
+
+.box7 {
+    background-color: rgb(209, 0, 0);
+}
+
+.box8 {
+    background-color: rgb(145, 145, 145);
+}
+
+.box9 {
+    background-color: rgb(0, 163, 87);
+}
+
+.box10 {
+    background-color: rgb(29, 129, 96);
+}
