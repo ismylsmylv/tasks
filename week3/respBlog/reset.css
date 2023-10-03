@@ -1,0 +1,10 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+h1, h1, h3, h4, h5, h6, p, a, li, ul{
+    color: white;
+    font-family: "Open Sans";
+    text-decoration: none;
+    text-transform: uppercase;
+}
