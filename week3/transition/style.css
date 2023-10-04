@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    margin: 40px;
+}
+
+.wrap {
+    border: 1px solid black;
+    width: 80vw;
+    height: 80vh;
+    position: relative;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    background-color: blueviolet;
+    position: absolute;
+    animation-name: movement;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes movement {
+    0% {
+        top: 0;
+        left: 0;
+    }
+
+    25% {
+        top: 0;
+        left: calc(100% - 100px);
+        background-color: blue;
+    }
+
+    50% {
+        top: calc(100% - 100px);
+        left: calc(100% - 100px);
+        background-color: red;
+    }
+
+    75% {
+        top: calc(100% - 100px);
+        left: 0;
+        background-color: green;
+    }
+
+    100% {
+        top: 0;
+        left: 0;
+    }
+}
