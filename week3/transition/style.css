@@ -27,7 +27,7 @@ h1 {
     background-color: blueviolet;
     position: absolute;
     animation-name: movement;
-    animation-duration: 3s;
+    animation-duration: 5s;
     animation-iteration-count: infinite;
 }
 
@@ -59,4 +59,8 @@ h1 {
         top: 0;
         left: 0;
     }
+}
+
+.box:hover{
+    animation-play-state: paused;
 }
