@@ -1,0 +1,28 @@
+body {
+    background-color: #F2F8FB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    text-align: center;
+
+    .header {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 40%;
+        padding: 40px;
+        h1 {
+            font-family: "K2D";
+            margin: 20px;
+        }
+
+        p {
+            font-size: 14px;
+            font-family: "Poppins";
+            color: #888888;
+            margin: 20px;
+        }
+    }
+}

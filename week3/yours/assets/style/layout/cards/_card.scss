@@ -1,0 +1,67 @@
+.card {
+    font-family: "K2D";
+    width: 20vw;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 10px;
+    text-align: start;
+
+    img {
+        width: 100%;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        z-index: 2;
+    }
+    .image{
+        position: relative;
+    }
+    button {
+        position: absolute;
+        background-color: #ff7a58;
+        padding: 10px 20px;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        top: 0;
+        left: 0;
+    }
+}
+    .banner {
+        padding: 20px;
+
+
+        .name {
+            font-family: "K2D";
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .info {
+            font-family: "Poppins";
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .pricing {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .priceMain {
+            color: #ff7a58;
+            font-size: 24px;
+        }
+
+        .timing {
+            font-weight: 300;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px;
+        }
+
+        i {
+            color: rgb(255, 196, 0)
+        }
+    }
