@@ -49,4 +49,4 @@ else {
         balance -= person * ticketPrice
         alert(`bought ${person} tickets,balance is ${balance}`)
     }
-}
+} 
