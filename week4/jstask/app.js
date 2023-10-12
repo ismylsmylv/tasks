@@ -59,14 +59,47 @@
 // alert(num **pow)
 
 //arrays
-//task 1
-let arr=Number(prompt("enter numbers"))
-let sum=0
-let res
-let i
-for(i=0; i< arr.lenght; i++){
-    sum=sum+arr[i];
-     
+// task 1
+// let arr=[23, 45, 23, 12, 6, 9]
+// let sum=0;
+// for(let i=0; i<arr.length; i++){
+//     sum+=arr[i];
+// }
+// console.log(Math.round(sum/arr.length))
+
+//task 2
+let arr = [23, 45, 23, 12, 6, 9]
+let max = arr[0]
+let min = arr[0]
+for (let i = arr[0]; i < arr.length; i++) {
+    if (max < arr[i]) {
+        max = arr[i]
+    }
+    if (min > arr[i]) {
+        min = arr[i]
+    }
 }
-res=sum/i
-alert(res)
+console.log(min)
+console.log(max)
+console.log((min+max)/2)
+
+
+
+//task 3
+//arraydaki sade ededlerin sayi
+// let arr = [23, 5, 19, 18, 56, 28]
+// let count = 0
+// let countSade = 0
+// for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length - 1; j++) {
+//         if (arr[i] % j == 0) {
+//             count++
+//             console.log(count)
+//             if (count == 2) {
+//                 countSade++
+//             }
+//         }
+
+//     }
+// }
+// console.log(countSade)
