@@ -1,0 +1,98 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 1fr 1fr;
+  gap: 30px;
+}
+
+.card {
+  font-family: "K2D";
+  width: 20vw;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  border-radius: 10px;
+  text-align: start;
+}
+.card img {
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  z-index: 2;
+}
+.card .image {
+  position: relative;
+}
+.card button {
+  position: absolute;
+  background-color: #ff7a58;
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  top: 0;
+  left: 0;
+}
+
+.banner {
+  padding: 20px;
+}
+.banner .name {
+  font-family: "K2D";
+  font-weight: bold;
+  font-size: 20px;
+}
+.banner .info {
+  font-family: "Poppins";
+  font-size: 14px;
+  margin: 10px 0;
+}
+.banner .pricing {
+  display: flex;
+  justify-content: space-between;
+}
+.banner .priceMain {
+  color: #ff7a58;
+  font-size: 24px;
+}
+.banner .timing {
+  font-weight: 300;
+}
+.banner .stars {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+.banner i {
+  color: rgb(255, 196, 0);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #F2F8FB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+  text-align: center;
+}
+body .header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 40%;
+  padding: 40px;
+}
+body .header h1 {
+  font-family: "K2D";
+  margin: 20px;
+}
+body .header p {
+  font-size: 14px;
+  font-family: "Poppins";
+  color: #888888;
+  margin: 20px;
+}/*# sourceMappingURL=main.css.map */

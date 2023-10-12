@@ -68,38 +68,41 @@
 // console.log(Math.round(sum/arr.length))
 
 //task 2
-let arr = [23, 45, 23, 12, 6, 9]
-let max = arr[0]
-let min = arr[0]
-for (let i = arr[0]; i < arr.length; i++) {
-    if (max < arr[i]) {
-        max = arr[i]
-    }
-    if (min > arr[i]) {
-        min = arr[i]
-    }
-}
-console.log(min)
-console.log(max)
-console.log((min+max)/2)
+// let arr = [23, 45, 23, 12, 6, 9]
+// let max = arr[0]
+// let min = arr[0]
+// for (let i = arr[0]; i < arr.length; i++) {
+//     if (max < arr[i]) {
+//         max = arr[i]
+//     }
+//     if (min > arr[i]) {
+//         min = arr[i]
+//     }
+// }
+// console.log(min)
+// console.log(max)
+// console.log((min+max)/2)
 
 
 
 //task 3
 //arraydaki sade ededlerin sayi
-// let arr = [23, 5, 19, 18, 56, 28]
-// let count = 0
-// let countSade = 0
-// for (let i = 0; i < arr.length; i++) {
-//     for (let j = 0; j < arr.length - 1; j++) {
-//         if (arr[i] % j == 0) {
-//             count++
-//             console.log(count)
-//             if (count == 2) {
-//                 countSade++
-//             }
-//         }
+let arr = [3, 5, 6, 8, 9];
+let countSimp = 0;
 
-//     }
-// }
-// console.log(countSade)
+for (let i = 0; i < arr.length; i++) {
+    let count = 0;
+    for (let j = 1; j <= arr[i]; j++) {
+        if (arr[i] % j === 0) {
+            count++;
+        }
+        if (count > 2) {
+            break;
+        }
+    }
+    if (count === 2) {
+        countSimp++;
+    }
+}
+
+console.log(countSimp);
