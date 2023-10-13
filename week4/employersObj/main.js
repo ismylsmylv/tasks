@@ -55,7 +55,7 @@ let employees = [employee1, employee2, employee3, employee4]
 // console.log(count);
 
 
-// 3 older than 60 
+// 3 older than 60
 // let count = 0
 // for (let i = 0; i < employees.length; i++) {
 //     if (employees[i].age > 60) {
@@ -65,7 +65,7 @@ let employees = [employee1, employee2, employee3, employee4]
 // console.log(employees);
 
 
-// 4 isMarried 
+// 4 isMarried
 // let count = 0
 // for (let i = 0; i < employees.length; i++) {
 //     if (employees[i].isMarried) {
@@ -105,19 +105,17 @@ let employees = [employee1, employee2, employee3, employee4]
 // console.log(max);
 
 // 8 min salary increase
-let count = 0
-let salary = 0
-let min = employees[0].salary
-for (let i = 0; i < employees.length; i++) {
-    if (min > employees[i].salary) {
-        min = employees[i].salary
-    }
-
-}
-for (let i = 0; i < employees.length; i++) {
-    if (employees[i].salary == min) {
-        employees[i].salary += 3000
-    }
-
-}
-console.log(employees);
+// let count = 0
+// let salary = 0
+// let min = employees[0].salary
+// for (let i = 0; i < employees.length; i++) {
+//     if (min > employees[i].salary) {
+//         min = employees[i].salary
+//     }
+// }
+// for (let i = 0; i < employees.length; i++) {
+//     if (employees[i].salary == min) {
+//         employees[i].salary += 3000
+//     }
+// }
+// console.log(employees);
