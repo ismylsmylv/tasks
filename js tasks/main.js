@@ -60,7 +60,7 @@
 // }
 // alert(`Dividers are ${dividers.join(', ')}`);
 
-//16. Verilmiş ədədin bütün bölənlərinin sayını tapan proqram tərtib edin
+//17. Verilmiş ədədin bölənlərinin sayını tapan proqram tərtib edin
 let dividers = [];
 let count=0;
 let num = Number(prompt("Enter number"));
