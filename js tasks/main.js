@@ -1,12 +1,10 @@
 //12. Verilmiş ədədi rəqəmlərinə ayıran proqram
 // let num = Number(prompt("Enter number"));
-// let count = 0;
 // while (num > 0) {
 //     let a = num % 10;
 //     num = (num - a) / 10;
 //     console.log(a);
 // }
-// alert(count);
 
 //13. Verilmiş ədədin rəqəmlərindən ən böyüyünü tapan proqram
 // let num = Number(prompt("Enter number"));
