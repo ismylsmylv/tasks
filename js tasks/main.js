@@ -4,7 +4,7 @@
 // while (num > 0) {
 //     let a = num % 10;
 //     num = (num - a) / 10;
-//     count++;
+//     console.log(a);
 // }
 // alert(count);
 
