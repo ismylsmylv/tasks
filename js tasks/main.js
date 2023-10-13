@@ -61,15 +61,15 @@
 // alert(`Dividers are ${dividers.join(', ')}`);
 
 //17. Verilmiş ədədin bölənlərinin sayını tapan proqram tərtib edin
-let dividers = [];
-let count=0;
-let num = Number(prompt("Enter number"));
-for (let i = 1; i <= num; i++) {
-    if (num % i == 0) {
-        count++
-    }
-}
-alert(count);
+// let dividers = [];
+// let count=0;
+// let num = Number(prompt("Enter number"));
+// for (let i = 1; i <= num; i++) {
+//     if (num % i == 0) {
+//         count++
+//     }
+// }
+// alert(count);
 
 //Verilmiş ədədlərin sadə və mürəkkəb olduğunu tapan proqram 
 let numbers = [7, 27, 48, 10];
