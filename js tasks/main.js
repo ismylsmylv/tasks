@@ -70,3 +70,24 @@ for (let i = 1; i <= num; i++) {
     }
 }
 alert(count);
+
+//Verilmiş ədədlərin sadə və mürəkkəb olduğunu tapan proqram 
+let numbers = [7, 27, 48, 10];
+let count = 0;
+
+for (let j = 0; j < numbers.length; j++) {
+    let currentNumber = numbers[j];
+    let dividersCount = 0;
+
+    for (let i = 1; i <= currentNumber; i++) {
+        if (currentNumber % i === 0) {
+            dividersCount++;
+        }
+    }
+
+    if (dividersCount === 2) {
+        alert(`${currentNumber} is sade`);
+    } else {
+        alert(`${currentNumber} is murekkeb`);
+    }
+}
