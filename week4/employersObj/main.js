@@ -55,7 +55,7 @@ let employees = [employee1, employee2, employee3, employee4]
 // console.log(count);
 
 
-// 3 older than 60 ----
+// 3 older than 60 
 // let count = 0
 // for (let i = 0; i < employees.length; i++) {
 //     if (employees[i].age > 60) {
