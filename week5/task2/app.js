@@ -13,8 +13,8 @@ class Product {
         this.name = name,
             this.salePrice = salePrice,
             this.isDiscounted = isDiscounted,
-            this.#costPrice = costPrice
-        this.discountPercentage = discountPercentage
+            this.#costPrice = costPrice,
+            this.discountPercentage = discountPercentage
     }
     getProfit() {
         let profit = 0
