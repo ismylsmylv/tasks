@@ -63,22 +63,28 @@ class Human {
         return this.currentYear - this.#birthyear
     }
     get age() {
-        return this.currentYear - this.#birthyear
+        return this.getAge()
     }
     get fullName() {
-        return this.name + " " + this.surname
+        return this.getFullName()
     }
-    // static compareAge() {
-    //     if (Human > Human) {
-    //         return Human
-    //     }
-    //     else {
-    //         return Human
-    //     }
-    // }
+    static compareAge(obj1, obj2) {
+        if (obj1.age > obj2.age) {
+            return obj1
+        }
+        else {
+            return obj2
+        }
+    }
+    //static compareCities(obj1.city, obj2.city)
+    //static applies to whole class not only object
 }
-let jake = new Human("jake", "doe", 1999, "london")
+
+let jake = new Human("jake", "doe", 1999)
+//let jake = new Human("jake", "doe", 1999, (country:"UK", city:"london"))
 let elen = new Human("elen", "relle", 1987, "nyc")
+
+
 
 class User extends Human {
     constructor(name, surname, birthyear, birthplace, username, email, password) {
@@ -102,7 +108,7 @@ class User extends Human {
     }
     logout() {
         if (this.isLogged) {
-            alert("logget out success")
+            alert("log out success")
             this.isLogged = false
         }
         else {
