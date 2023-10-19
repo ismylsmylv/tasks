@@ -971,7 +971,7 @@ let arr = [
 
 
 // 2 prompt name and return to console
-// nameInput = "Tofu"
+// nameInput = prompt("enter name")
 // let finder = arr.find(prod => {
 //     if (nameInput == prod.name) {
 //         return prod;
@@ -979,6 +979,7 @@ let arr = [
 // }
 // )
 // console.log(finder);
+//return (x.name.toLowercase(includes(search.toLowerCase())))
 
 // 3 filter and return discounted true
 // let finder = arr.filter((prod) => prod.discontinued == true)
@@ -1021,14 +1022,15 @@ let arr = [
 
 //DATE TIME
 // 1 create variable with date and time
-// date = new Date
+// date = new Date("20 may 2020 13:45")
 // console.log(date.getFullYear());
 // console.log(date.getMinutes());
 
 // 2 get month, weekday, day, hour, minutes, seconds
 // let month = date.getMonth()
-// console.log(month+1);
-// let weekday = Math.round(date.getDay()/7)
+// months=["jan", "feb", "march"]
+// console.log(months[month]);
+// let weekday = date.getDay()
 // console.log(weekday);
 // let day = date.getDay()
 // console.log(day);
