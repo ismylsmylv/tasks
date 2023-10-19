@@ -89,3 +89,4 @@ let arr = students.map(element => {
     return sum
 })
 console.log(sum);
+
