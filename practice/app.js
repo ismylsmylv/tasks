@@ -27,7 +27,7 @@
 //     alert(`${year} is not leap`)
 // }
 
-////////////////////GPT-made////////////////////
+////////////////////GPT-made Classes////////////////////
 // 1 Write a JavaScript program to create a class called "Movie" with properties for title, genre, and release year. Include a method to display the movie details. Create two instances of the 'Movie' class and display their details.
 // class Movie {
 //     constructor(title, genre, year) {
@@ -59,27 +59,135 @@
 // tri.perimeter()
 
 // 3 Write a JavaScript program that creates a class called 'Library' with properties for library name and books. Include methods to add a book, remove a book, and display all books. Create an instance of the 'Library' class and perform operations to add and remove books.
-class Library {
-    constructor(libName) {
-        this.libName = libName
-        this.bookName = []
-    }
-    add(book) {
-        this.bookName.push(book)
-    }
-    remove(bookTitle) {
-        this.bookName = this.bookName.filter(book => book != bookTitle)
-    }
-    display() {
-        this.bookName.forEach(console.log(this.bookName))
-    }
-}
-let book1 = new Library("Central")
-book1.add("Ready Player Two")
-book1.add("Ready Player One")
-book1.remove("Ready Player One")
-book1.remove("Ready Player Two")
-book1.add("Harry Potter")
-book1.add("The Maze Runner")
-console.log(book1);
-book1.display()
+// class Library {
+//     constructor(libName) {
+//         this.libName = libName
+//         this.bookName = []
+//     }
+//     add(book) {
+//         this.bookName.push(book)
+//     }
+//     remove(bookTitle) {
+//         this.bookName = this.bookName.filter(book => book != bookTitle)
+//     }
+//     display() {
+//         this.bookName.forEach(book=>console.log(book))
+//     }
+// }
+// let book1 = new Library("Central")
+// book1.add("Ready Player Two")
+// book1.add("Ready Player One")
+// book1.remove("Ready Player One")
+// book1.remove("Ready Player Two")
+// book1.add("Harry Potter")
+// book1.add("The Maze Runner")
+// console.log(book1);
+// book1.display()
+
+// 4 Create a class Student with properties for name, age, and grade. Include a method to display student details. Create an array of students and display their details. + methods for different conditions
+// class Student {
+//     constructor(name, age, grades) {
+//         this.name = name
+//         this.age = age
+//         this.grades = grades
+//     }
+//     gradeCheck() {
+//         let points = this.grades.filter(grad => grad > 5)
+//         return `${this.name} has ${points}`
+//     }
+// }
+// let stud1 = new Student("tom", 19, [6, 8, 7])
+// let stud2 = new Student("lily", 29, [1, 6, 3])
+// console.log(stud1.gradeCheck());
+
+// 5 Write a JavaScript program that creates a class called 'Recipe' with properties for title, ingredients, and instructions. Include a method to display recipe details. Create a subclass called 'HealthyRecipe' that inherits from the 'Recipe' class and adds a property for calorie count. Override the display method to include the calorie count. Create instances of both classes and display their details.
+// class Recipe {
+//     constructor(title, ingredients, instructions) {
+//         this.title = title
+//         this.ingredients = ingredients
+//         this.instructions = instructions
+//     }
+//     display() {
+//         return `${this.title} requires ${this.ingredients} and has to ${this.instructions}`
+//     }
+// }
+// let dish1 = new Recipe("Beef", "beef, salt, pepper, butter", "mix all up together and cook for 40 minutes in oven at 250 degrees ")
+
+// console.log(dish1.display());
+
+// class HealthyType extends Recipe {
+//     constructor(title, ingredients, instructions, calorie) {
+//         super(title, ingredients, instructions)
+//         this.calorie = calorie
+//     }
+//     display() {
+//         return `${this.title} requires ${this.ingredients} and has to ${this.instructions} and total ${this.calorie} calories`
+//     }
+// }
+// let dish2 = new HealthyType("Chicken", "chicken, salt, pepper, onion, butter", "mix all up together and cook for 20 minutes in oven at 250 degrees", 2000)
+// console.log(dish2.display());
+
+
+////////////////////Custom Methods////////////////////
+// 6 Custom method to find the sum of all elements in the array
+// Array.prototype.findSum=function(){
+//     let sum=0
+//     for(i=0; i<this.length; i++){
+//         sum+=this[i]
+//     }
+//     return sum
+// }
+
+// Array.prototype.findSum = function () {
+//     return this.reduce((acc, current) => acc + current, 0)
+// }
+// arr = [4, 2, 5, 5]
+// console.log(arr.findSum());
+
+// 7 Custom method to filter out even numbers from the array
+// Array.prototype.filteredEven=function(){
+//     return this.filter(item =>item%2==0)
+// }
+// arr = [4, 2, 5, 5]
+// console.log(arr.filteredEven());
+
+// 8 Custom method filter
+// Array.prototype.filtered = function (item) {
+//     let arr=[]
+//     for (let i = 0; i < this.length; i++) {
+//         if (this[i] != item) {
+//             arr.push(this[i])
+//         }
+//     }
+//     return arr
+// }
+// arr = [4, 2, 5, 5]
+// console.log(arr.filtered(4));
+
+// 9 Custom method to square each element in the array
+// Array.prototype.square=function(){
+//     return this.map(item=> item*item)
+// }
+// arr = [4, 2, 5, 5]
+// console.log(arr.square());
+
+// 10 Custom method to check if all elements are positive
+// Array.prototype.positive=function(){
+//     return this.every(item=>item>0)
+// }
+// Array.prototype.positiveHas=function(){
+//     return this.some(item=>item>0)
+// }
+// arr = [4, 2, 5, -5]
+// console.log(arr.positive());
+// console.log(arr.positiveHas());
+
+// 10 Find avarage of numbers in array
+// Array.prototype.avarage = function () {
+//     let avarg = this.reduce((acc, num) => acc + num, 0)
+//     return Math.round(avarg / this.length)
+// }
+// arr = [4, 2, 15, -15, 2309, 3221, 12]
+// console.log(arr.avarage());
+
+////////////////////Callback////////////////////
