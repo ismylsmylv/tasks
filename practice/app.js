@@ -27,6 +27,8 @@
 //     alert(`${year} is not leap`)
 // }
 
+
+
 ////////////////////GPT-made Classes////////////////////
 // 1 Write a JavaScript program to create a class called "Movie" with properties for title, genre, and release year. Include a method to display the movie details. Create two instances of the 'Movie' class and display their details.
 // class Movie {
@@ -128,6 +130,7 @@
 // console.log(dish2.display());
 
 
+
 ////////////////////Custom Methods////////////////////
 // 6 Custom method to find the sum of all elements in the array
 // Array.prototype.findSum=function(){
@@ -190,4 +193,69 @@
 // arr = [4, 2, 15, -15, 2309, 3221, 12]
 // console.log(arr.avarage());
 
+
+
 ////////////////////Callback////////////////////
+// let sumer = function (num1, num2) {
+//     return num1 + num2
+// }
+// let multi = function (num1, num2) {
+//     return num1 * num2
+// }
+// let power = function (num1, num2) {
+//     return num1 ** num2
+// }
+// function funct(num1, num2, sum, product, pow) {
+//     return `${sum(num1, num2)}, ${product(num1, num2)}, ${pow(num1, num2)}`
+// }
+// console.log(funct(4, 3, sumer, multi, power));
+
+
+
+////////////////////Reduce////////////////////
+// let arr = [3, 2, 7, 8]
+// let sum = arr.reduce((num1, num2) => num1 + num2)
+// let pow = arr.reduce((num1, num2) => num1 ** num2)
+// let prod = arr.reduce((num1, num2) => num1 * num2)
+// console.log(sum);
+// console.log(pow);
+// console.log(prod);
+
+
+
+////////////////////Entries////////////////////
+// let arr = ["3", 2, "7", 8]
+// arrEnt = arr.entries()
+// const fruits = ['apple', 'banana', 'orange'];
+
+// const entries = fruits.entries();
+// let pushes=[]
+// for (const entry of entries) {
+//     pushes.push(entry)
+// }
+// console.log(pushes);
+
+
+
+////////////////////Keys////////////////////
+// let person = {
+//     name: "John",
+//     surname: "Doe",
+//     age: 29
+// }
+// let arr = [3, 2, 7, 8]
+// console.log(Object.keys(person));
+// arr.forEach(i => {
+//     console.log([i])
+// })
+// document.addEventListener('keydown', (event) => {
+//     console.log(event.key); // logs the key pressed
+// });
+
+
+
+////////////////////Keys////////////////////
+let arr = [3, 2, 7, 8]
+let str = ["apple", "banana", "orange"]
+console.log(arr.sort((a, b) => b - a));
+console.log(str.sort((a, b) => b - a));
