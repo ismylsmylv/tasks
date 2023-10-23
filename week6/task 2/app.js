@@ -1,7 +1,7 @@
 let body = document.querySelector("body")
 let div = document.createElement("div")
 let box = document.createElement("box")
-let btn = document.createElement("btn")
+let btn = document.createElement("button")
 let ul = document.createElement("ul")
 let li1 = document.createElement("li")
 let li2 = document.createElement("li")
@@ -16,9 +16,7 @@ ul.appendChild(li1)
 ul.appendChild(li2)
 li1.appendChild(a1)
 li2.appendChild(a2)
-body.appendChild(h2)
-body.appendChild(p)
-body.appendChild(btn)
+body.append(h2, p, btn)
 
 div.style.border = "1px solid black"
 div.style.width = "100%"
@@ -38,4 +36,5 @@ btn.style.borderRadius = "5px"
 btn.style.color = "white"
 btn.innerText = "Disabled button"
 btn.style.backgroundColor = "skyblue"
-btn.style.marginTop = "50px"
+btn.style.marginTop = "10px"
+btn.setAttribute("disabled", true)
