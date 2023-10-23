@@ -255,7 +255,22 @@
 
 
 ////////////////////Keys////////////////////
-let arr = [3, 2, 7, 8]
-let str = ["apple", "banana", "orange"]
-console.log(arr.sort((a, b) => b - a));
-console.log(str.sort((a, b) => b - a));
+// let arr = [3, 2, 7, 8]
+// let str = ["apple", "banana", "orange"]
+// console.log(arr.sort((a, b) => b - a));
+// console.log(str.sort((a, b) => b - a));
+
+
+
+//extras
+////3. Array-in median və ədədi ortasını obyekt tərkibində return edən funksiya yazın. Median- ən kiçik element ilə ən böyük elementin ədədi ortasıdır.
+let arr = [3, 2, 5, 9, 78, 99, 7, 8]
+max = arr[0]
+min = arr[0]
+let sum = arr.reduce((num1, num2) => num1 + num2)
+let median = arr.sort((a, b) => a - b)
+let medArr = (median[0] + median[median.length - 1]) / 2
+
+
+console.log(sum);
+console.log(medArr);
