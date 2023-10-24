@@ -48,12 +48,14 @@ let imgField = document.querySelector("#imgField")
 let card = document.querySelector(".card")
 let cont = document.querySelector(".container")
 let body=document.querySelector("body")
+let fieldBtn=document.querySelector(".fieldBtn")
 
-
-button.addEventListener("submit", function (e) {
-    card.innerHTML = `        <div class="card col-3">
+fieldBtn.addEventListener("submit", function (e) {
+    e.preventDefault()
+    cont.innerHTML += `        <div class="card col-3">
 <img src="${imgField}" alt="">
 <h3>${nameField}</h3>
 <p>${ageField}</p>
 </div>`
+
 })
