@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 80px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 20px;
+}
+
+button {
+    height: 60px;
+    width: 60px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.btn1 {
+    background-color: green;
+}
+
+.btn2 {
+    background-color: green;
+}
+
+.count {
+    height: 60px;
+    width: 60px;
+    text-align: center;
+}
+
+.checker {
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.checker .error {
+    display: none;
+}
+
+.btnInput {
+    display: flex;
+    justify-content: space-around;
+}
+
+li {
+    list-style: none;
+}
+
+.formField {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.formField input,
+.formField label {
+    margin: 5px
+}
+
+.formField button {
+    margin: 0 auto;
+}
+
+.card h3,
+.card p {
+    margin: 5px;
+}
