@@ -53,9 +53,9 @@ form.addEventListener("submit", function (e) {
 
 })
 
-studentsBtn.addEventListener("click", function(e){
+studentsBtn.addEventListener("click", function (e) {
     e.preventDefault()
-    row.innerHTML+=`<div class="card col-4">
+    row.innerHTML += `<div class="card col-4">
     <div class="cardImg"><img src="" alt=""></div>
     <h3>${inputName.value}</h3>
     <p>${inputAge.value}</p>
