@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+body {
+    background: rgb(1, 77, 161);
+    background: linear-gradient(0deg, rgba(1, 77, 161, 1) 0%, rgba(19, 187, 168, 1) 100%);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.wrapper {
+    padding: 20px;
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+button {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    background-color: rgb(98, 0, 155);
+}
+
+.error {
+    display: none;
+    color: red;
+    text-align: center;
+}
+
+h1 {}
+
+.inputs {
+    height: 100%;
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    outline: none;
+    border: 1px solid rgb(192, 192, 192);
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    margin-right: 5px
+}
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    align-items: center;
+}
+
+.task {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(243, 243, 243);
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.taskText {
+    width: 80%;
+    margin-left: 5px;
+}
+
+.task .completeBtn {
+    border-radius: 0;
+    background-color: rgb(3, 129, 30);
+}
+
+.task .deleteBtn {
+    border-radius: 0;
+    background-color: rgb(216, 21, 21);
+    border-radius: 0 5px 5px 0;
+}
