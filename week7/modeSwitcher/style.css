@@ -1,0 +1,18 @@
+.dark{
+    background-color: black;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+}
+.dark:hover{
+    background-color: black;
+}
+.light:hover{
+    background-color: white;
+}
+.light{
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    color: black;
+}
