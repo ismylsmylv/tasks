@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav{
+    background-color: rgb(76, 76, 255);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+nav img{
+    width: 200px;
+}
+nav .navigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+    padding: 10px
+}
+nav a:hover{
+    color: greenyellow;
+}
+input{
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 40%;
+}
+.input{
+    width: 40%;
+
+}
+.results{
+    padding: 20px;
+}
+.card{
+    margin: 10px;
+    padding: 0;
+}
+.card img{
+    height: 150px;
+    object-fit: cover;
+}
