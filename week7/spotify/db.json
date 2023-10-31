@@ -1,25 +1,28 @@
 {
   "singers": [
-    {
-      "id": 1,
-      "name": "Adele",
-      "age": 35,
-      "nation": "British",
-      "image": "https://ca-times.brightspotcdn.com/dims4/default/1a071c7/2147483647/strip/true/crop/4130x2753+0+0/resize/1200x800!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F20%2F97%2F8efe5252454bb8e81b911ef18f17%2Fbritain-brit-awards-2022-arrivals-05121.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Beyonce",
-      "age": 42,
-      "nation": "American ",
-      "image": "https://www.lifeandstylemag.com/wp-content/uploads/2023/09/What-Is-Beyonces-Real-Name-and-Age-Story-Behind-Moniker.jpg?crop=0px%2C117px%2C2567px%2C1454px&resize=940%2C529&quality=86&strip=all"
-    },
-    {
-      "id": 3,
-      "name": "Ed Sheeran",
-      "age": 32,
-      "nation": "British",
-      "image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/12/05/18/Ed-Sheeran.jpg"
-    }
+      {
+          "id": 1,
+          "name": "Adele",
+          "age": 35,
+          "nation": "British",
+          "image": "https://ca-times.brightspotcdn.com/dims4/default/1a071c7/2147483647/strip/true/crop/4130x2753+0+0/resize/1200x800!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F20%2F97%2F8efe5252454bb8e81b911ef18f17%2Fbritain-brit-awards-2022-arrivals-05121.jpg",
+          "genre":"jazz"
+      },
+      {
+          "id": 2,
+          "name": "Beyonce",
+          "age": 42,
+          "nation": "American ",
+          "image": "https://www.lifeandstylemag.com/wp-content/uploads/2023/09/What-Is-Beyonces-Real-Name-and-Age-Story-Behind-Moniker.jpg?crop=0px%2C117px%2C2567px%2C1454px&resize=940%2C529&quality=86&strip=all",
+          "genre":"dance pop"
+      },
+      {
+          "id": 3,
+          "name": "Ed Sheeran",
+          "age": 32,
+          "nation": "British",
+          "image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/12/05/18/Ed-Sheeran.jpg",
+          "genre":"pop"
+      }
   ]
 }
