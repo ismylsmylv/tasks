@@ -1,0 +1,28 @@
+{
+    "users": [
+        {
+            "username": "johndoe",
+            "email": "johndoe@gmail.com",
+            "password": "j0hnd03"
+        },
+        {
+            "username": "sambrandley",
+            "email": "sambrandley@gmail.com",
+            "password": "s@ms@m"
+        }
+    ],
+    "products": [
+        {
+            "name": "laptop",
+            "price": 430,
+            "stockCount": 100,
+            "imageLink": "https://media.wired.com/photos/64daad6b4a854832b16fd3bc/4:3/w_1787,h_1340,c_limit/How-to-Choose-a-Laptop-August-2023-Gear.jpg"
+        },
+        {
+            "name": "keyboard",
+            "price": 30,
+            "stockCount": 60,
+            "imageLink": "https://media.wired.com/photos/61044c948eb98ab033ce464e/191:100/w_2580,c_limit/Gear-Logitech-G413-Keyboard.jpg"
+        }
+    ]
+}
