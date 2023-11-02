@@ -1,0 +1,22 @@
+input{
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 40%;
+}
+.input{
+    width: 40%;
+
+}
+.results{
+    padding: 20px;
+    width: 80%;
+    margin:0 auto;
+}
+.input .search{
+    margin-top:10px;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

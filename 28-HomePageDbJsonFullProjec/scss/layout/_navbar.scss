@@ -1,0 +1,25 @@
+@import "../utils/variables";
+nav{
+    background-color: $baseColor;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+nav img{
+    width: 200px;
+}
+nav .navigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav a{
+    color: $filler;
+    text-decoration: none;
+    padding: 10px;
+    margin-right: 10px;
+}
+nav a:hover{
+    color: $hover;
+}
