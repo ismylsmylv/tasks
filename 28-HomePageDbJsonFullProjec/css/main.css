@@ -93,4 +93,7 @@ input {
 }
 .bigCard .bigCardFooter {
   padding: 15px;
-}/*# sourceMappingURL=main.css.map */
+}
+.linearRed {
+  color: red;
+}

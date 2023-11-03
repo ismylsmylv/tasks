@@ -10,13 +10,13 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./css/main.css">
-    <title>Spotify</title>
+    <title>Uber Eats</title>
 </head>
 
 <body>
     <nav style="background-color: #06C167">
-        <div class="logo"><img src="https://play-lh.googleusercontent.com/kDzXydb6ZT4LUj0RiU-GyptnVgCzzk9snN1FVxj2YfqFb4PpRdQRBKzdz4jzUOxAS9-d" style="height:100px; object-fit:contain"
-                alt="logo"></div>
+        <a href="./meals.html" class="logo"><img src="https://play-lh.googleusercontent.com/kDzXydb6ZT4LUj0RiU-GyptnVgCzzk9snN1FVxj2YfqFb4PpRdQRBKzdz4jzUOxAS9-d" style="height:100px; object-fit:contain"
+            alt="logo"></a>
         <div class="navigation" >
             <a href="./index.html">Singers</a>
             <a href="./meals.html">Meals</a>
@@ -56,7 +56,8 @@
             </div>
 
             <div id="summary" class="w-1/4 px-8 py-10">
-                <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
+                <h1 class="font-semibold text-2xl  pb-8">Order Summary</h1>
+                <h3 class="font-semibold text-xl border-b pb-8 removeAllTotal" style="color:red; cursor:pointer">Remove All</h3>
                 <!-- <div class="flex justify-between mt-10 mb-5">
                     <span class="font-semibold text-sm uppercase">Items 3</span>
                     <span class="font-semibold text-sm">590$</span>

@@ -6,6 +6,15 @@ fetch(url)
     .then((data) => {
         data.forEach((elem, i) => {
             elem.count = 1
+            let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+            if(cartMeals){
+            let sup = document.querySelector("sup")
+            if (data) {
+                sup.textContent = cartMeals.length;
+            }
+            }
+            
+
             results.innerHTML += `
         <div class="card" style="width: 18rem;">
           <img name="${elem.id}" src="${elem.image}" class="card-img-top" alt="singer">
@@ -48,6 +57,11 @@ fetch(url)
                     favItemsArrMeal = favItemsArrMeal.filter(elem => elem.id != this.getAttribute("name"))
                     localStorage.setItem("favMeals", JSON.stringify(favItemsArrMeal))
                     console.log(favItemsArrMeal);
+                    let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+                    let sup = document.querySelector("sup")
+                    if (data) {
+                        sup.textContent = cartMeals.length;
+                    }
                 }
                 else {
                     // console.log(this.classList);
@@ -56,10 +70,16 @@ fetch(url)
                     favItemsArrMeal.push(data[+this.getAttribute("name") - 1]);
                     localStorage.setItem("favMeals", JSON.stringify(favItemsArrMeal))
                     console.log(favItemsArrMeal);
+                    let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+                    let sup = document.querySelector("sup")
+                    if (data) {
+                        sup.textContent = cartMeals.length;
+                    }
                 }
             })
         })
 
+        
         //cart
         let cart = document.querySelectorAll(".cart")
         let cartItemsMealArr = []
@@ -75,16 +95,20 @@ fetch(url)
                 console.log(this.name);
                 if (cartItemsMealArr.find((elem) => elem.id == this.name)
                 ) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Added to cart',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
                     cartItemsMealArr.find((elem) => elem.id == this.name).count++
                     localStorage.setItem("cartMeals", JSON.stringify(cartItemsMealArr))
                     console.log(cartItemsMealArr);
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Added again to cart',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    let sup = document.querySelector("sup")
+                    let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+                        sup.textContent = cartMeals.length;
+                    
                 }
                 else {
                     console.log(this.classList);
@@ -93,11 +117,15 @@ fetch(url)
                     console.log(cartItemsMealArr);
                     Swal.fire({
                         position: 'center',
-                        icon: 'error',
-                        title: 'Removed from cart',
+                        icon: 'success',
+                        title: 'Added to cart',
                         showConfirmButton: false,
                         timer: 1500
                     })
+                    let sup = document.querySelector("sup")
+                    let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+                        sup.textContent = cartMeals.length;
+                    
                 }
             })
         }

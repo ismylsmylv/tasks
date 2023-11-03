@@ -1,120 +1,135 @@
-let cartList = document.querySelector(".cartList")
-let cartItemCount = document.querySelector(".cartItemCount")
-let sup = document.querySelector("sup")
-// let sup = document.querySelector(".sup")
-let localCart = JSON.parse(localStorage.getItem("cartMeals"))
-let totalPriceInCheckOut = document.querySelector(".totalPriceInCheckOut")
-let count = 0
-let total = 0
-for (let elem of localCart) {
-    // console.log(elem);
-    count++
-    sup.textContent = count
-    // sup.textContent = count
-    cartItemCount.textContent = `${count} items`
+let cartList = document.querySelector(".cartList");
+let cartItemCount = document.querySelector(".cartItemCount");
+let sup = document.querySelector("sup");
+let localCart = JSON.parse(localStorage.getItem("cartMeals"));
+let totalPriceInCheckOut = document.querySelector(".totalPriceInCheckOut");
+let count = 0;
+let total = 0;
+// sup.textContent=JSON.parse(localStorage.getItem("cartMeals")).length()
+for (let index = 0; index < localCart.length; index++) {
+    let elem = localCart[index];
+    count++;
+    sup.textContent = count;
+    cartItemCount.textContent = `${count} items`;
+
     cartList.innerHTML += `
+       
     <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                    <div class="flex w-2/5"> <!-- product -->
-                        <div class="w-20">
-                            <img class="h-24" style="object-fit:cover" src="${elem.image}"
-                                alt="">
-                        </div>
-                        <div class="flex flex-col justify-between ml-4 flex-grow">
-                            <span class="font-bold text-sm">${elem.name}</span>
-                            <a class="removeCart font-semibold hover:text-red-500 text-gray-500 text-xs" style="cursor:pointer; color:red">Remove</a>
-                        </div>
-                    </div>
-                    <div class="flex justify-center w-1/5 countBtns">
-                        <svg class="fill-current decrease text-gray-600 w-3" viewBox="0 0 448 512">
-                            <path
-                                d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                        </svg>
+    <div class="flex w-2/5"> <!-- product -->
+        <div class="w-20">
+            <img class="h-24" style="object-fit:cover" src="${elem.image}"
+                alt="">
+        </div>
+        <div class="flex flex-col justify-between ml-4 flex-grow">
+            <span class="font-bold text-sm">${elem.name}</span>
+            <a class="removeCart font-semibold hover:text-red-500 text-gray-500 text-xs" style="cursor:pointer; color:red">Remove</a>
+        </div>
+    </div>
+    <div class="flex justify-center w-1/5 countBtns">
+        <svg class="fill-current decrease text-gray-600 w-3" viewBox="0 0 448 512">
+            <path
+                d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+        </svg>
 
-                        <input class="mx-2 border innerCount text-center w-8" type="text" value="1">
+        <input class="mx-2 border innerCount text-center w-8" type="text" value="1">
 
-                        <svg class="fill-current increase text-gray-600 w-3" viewBox="0 0 448 512">
-                            <path
-                                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                        </svg>
-                    </div>
-                    <span class="text-center w-1/5 font-semibold text-sm totalOne">$${elem.price}</span>
-                    <span class="text-center w-1/5 font-semibold text-sm totalAll">$${elem.price}</span>
-                </div>
-    `
-    total += elem.price
-    totalPriceInCheckOut.textContent = `$${total}`
-    console.log(elem.price);
-    let countBtns = document.querySelectorAll(".countBtns")
+        <svg class="fill-current increase text-gray-600 w-3" viewBox="0 0 448 512">
+            <path
+                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+        </svg>
+    </div>
+    <span class="text-center w-1/5 font-semibold text-sm totalOne"><span>$</span><span>${elem.price}</span></span>
+    <span class="text-center w-1/5 font-semibold text-sm totalAll">$${elem.price}</span>
+</div>
+    `;
+    total += elem.price;
+    totalPriceInCheckOut.textContent = `$${total.toFixed(2)}`;
+
+    let countBtns = document.querySelectorAll(".countBtns");
+
+    //count changes
     for (let btn of countBtns) {
+        let onePrice = parseInt(btn.nextElementSibling.lastChild.textContent)
+        console.log(onePrice);
+        let innerCount = btn.querySelector(".innerCount");
+        let decreaseBtn = btn.querySelector(".decrease");
+        let increaseBtn = btn.querySelector(".increase");
+        let totalAll = btn.nextElementSibling.nextElementSibling;
 
-        let innerCount = btn.querySelector(".innerCount")
-        let decreaseBtn = btn.querySelector(".decrease")
-        let increaseBtn = btn.querySelector(".increase")
-        let number = innerCount.value
-        let count = 1
-        let totalOne=0
-        let totalAll = document.querySelector(".totalAll")
-        let totalPriceInCheckOut = document.querySelector(".totalPriceInCheckOut")
-        let totalAllNum = 0
-        let totalPriceInCheckOutSum=0
         decreaseBtn.addEventListener("click", function () {
-            innerCount.value = number
-            number = --count
-            totalOne -= elem.price * number
-            console.log(totalOne);
-            totalAll.textContent = totalOne
-            totalPriceInCheckOutSum-=totalOne
-            totalPriceInCheckOut.textContent = totalPriceInCheckOutSum
-        })
+            let number = parseInt(innerCount.value);
+            console.log(onePrice);
+            if (number > 1) {
+                number--;
+                innerCount.value = number;
+                changeTotalAll(onePrice, number, totalAll, index);
+            }
+        });
+
         increaseBtn.addEventListener("click", function () {
-            innerCount.value = number
-            number = count++
-            totalOne += elem.price * number
-            console.log(totalOne);
-            totalAll.textContent = totalOne
-            totalPriceInCheckOutSum+=totalOne
-            totalPriceInCheckOut.textContent = totalPriceInCheckOutSum
+            let number = parseInt(innerCount.value);
+            number++;
+            innerCount.value = number;
+            changeTotalAll(onePrice, number, totalAll, index);
+        });
+
+        let removeCart = document.querySelectorAll(".removeCart");
+        for (let btn of removeCart) {
+            btn.addEventListener("click", function () {
+                let itemTotal = parseFloat(totalAll.textContent.replace("$", ""));
+                count--;
+                cartItemCount.textContent = `${count} items`;
+                total -= itemTotal;
+                totalPriceInCheckOut.textContent = `$${total.toFixed(2)}`;
+                this.parentElement.parentElement.parentElement.remove();
+                localCart.splice(index, 1);
+                localStorage.setItem("cartMeals", JSON.stringify(localCart));
+                let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+                let sup = document.querySelector("sup")
+                
+                    sup.textContent = cartMeals.length;
+                
+            });
+        }
+        //remove all
+        let remover = document.querySelector(".removeAllTotal")
+        remover.addEventListener("click", function (e) {
+            e.preventDefault()
+            cartList.innerHTML = ''
+            localStorage.removeItem("cartMeals")
+            total = 0
+            cartItemCount.textContent = "0 Items"
+            totalPriceInCheckOut.textContent = "$0"
+            let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+            let sup = document.querySelector("sup")
+            
+                sup.textContent = "0";
+            
         })
     }
-    // for (let countBtn of countBtns) {
-    //     let innerCount = document.querySelectorAll(".innerCount")
-    //     let decreaseBtn = document.querySelectorAll(".decrease")
-    //     let increaseBtn = document.querySelectorAll(".increase")
-    //     for (let number of innerCount) {
-    //         let count = 1
-    //         for (btn of decreaseBtn) {
-    //             btn.addEventListener("click", function () {
-
-    //                 number.value = --count
-
-
-    //             })
-    //         }
-    //         for (btn of increaseBtn) {
-    //             btn.addEventListener("click", function () {
-
-    //                 number.value = ++count
-    //             })
-    //         }
-    //     }
-    // }
-
-
-
-    let removeCart = document.querySelectorAll(".removeCart")
-    for (let btn of removeCart) {
-        btn.addEventListener("click", function () {
-            console.log(this.parentElement.parentElement.parentElement.remove());
-            --count
-            cartItemCount.textContent = `${count} items`
-            sup.textContent = count
-            total = total - elem.price
-            totalPriceInCheckOut.textContent = `$${total}`
-
-        })
-    }
-
-
-
 
 }
+
+//function
+function changeTotalAll(price, count, totalAllElement, index) {
+    let totalOne = price * count;
+    totalAllElement.textContent = `$${totalOne.toFixed(2)}`;
+    localCart[index].count = count;
+    localStorage.setItem("cartMeals", JSON.stringify(localCart));
+    changeTotalPriceCheckout();
+}
+
+function changeTotalPriceCheckout() {
+    let totalAllElements = document.querySelectorAll(".totalAll");
+    let totalPriceInCheckOutSum = 0;
+
+    totalAllElements.forEach((element) => {
+        totalPriceInCheckOutSum += parseFloat(element.textContent.replace("$", ""));
+    });
+
+    totalPriceInCheckOut.textContent = `$${totalPriceInCheckOutSum.toFixed(2)}`;
+}
+
+
+
+

@@ -100,5 +100,45 @@
             ],
             "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/02/05/Baked-Feta-Pasta-4_s4x3.jpg.rend.hgtvcom.616.493.suffix/1615916524567.jpeg"
         }
+    ],
+    "users": [
+        {
+            "id": 2,
+            "username": "janedoe",
+            "password": "password456",
+            "email": "janedoe@example.com",
+            "balance": 200.0,
+            "orders": [
+                {
+                    "id": 12,
+                    "totalPrice": 345,
+                    "orderDate": "Nov 1 2023, 12:43"
+                },
+                {
+                    "id": 54,
+                    "totalPrice": 12,
+                    "orderDate": "Dec 12 2023, 23:43"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "username": "jimdoe",
+            "password": "password789",
+            "email": "jimdoe@example.com",
+            "balance": 300.0,
+            "orders": [
+                {
+                    "id": 12,
+                    "totalPrice": 345,
+                    "orderDate": "Nov 1 2023, 12:43"
+                },
+                {
+                    "id": 54,
+                    "totalPrice": 12,
+                    "orderDate": "Dec 12 2023, 23:43"
+                }
+            ]
+        }
     ]
 }
