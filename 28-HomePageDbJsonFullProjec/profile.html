@@ -6,53 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+
     <title>Profile</title>
 </head>
 
 <body>
-    <section style="font-family: Montserrat"
-        class=" bg-[#071e34] flex font-medium items-center justify-center h-screen">
-        <section class="w-64 mx-auto bg-[#20354b] rounded-2xl px-8 py-6 shadow-lg">
-            <div class="flex items-center justify-between">
-                <span class="text-gray-400 text-sm">2d ago</span>
-                <span class="text-emerald-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                    </svg>
-                </span>
-            </div>
-            <div class="mt-6 w-fit mx-auto">
-                <img src="https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe" class="rounded-full w-28 "
-                    alt="profile picture" srcset="">
-            </div>
-
-            <div class="mt-8 ">
-                <h2 class="text-white font-bold text-2xl tracking-wide username">Jonathan Smith</h2>
-            </div>
-            <p class="text-emerald-400 font-semibold mt-2.5">
-                Active
-            </p>
-
-            <div class="h-1 w-full bg-black mt-8 rounded-full">
-                <div class="h-1 rounded-full w-2/5 bg-yellow-500 "></div>
-            </div>
-            <div class="mt-3 text-white text-sm">
-                <span class="text-gray-400 font-semibold">Storage:</span>
-                <span>40%</span>
-            </div>
-
+    <nav>
+        <a href="./index.html" class="logo"><img
+                src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png" alt="logo"></a>
+        <div class="navigation">
+            <a href="./index.html">Singers</a>
+            <a href="./meals.html">Meals</a>
+            <a href="./basket.html">Basket<sup>0</sup></a>
+            <a href="./wishlist.html">Wishlist<sup class="favSup">0</sup></a>
+            <a href="./profile.html">Profile</a>
+            <a href="./login.html" class="btn btn-light">Login</a>
+            <a href="./signup.html" class="btn btn-dark">Register</a>
+        </div>
+    </nav>
+    <div class="content">
+        <section style="font-family: Montserrat"
+            class=" bg-[#ffffff] flex font-medium items-center justify-center mt-6">
+            <section class="w-64 mx-auto bg-[#374151] rounded-2xl px-8 py-6 shadow-lg">
+                <div class="flex items-center justify-between">
+                </div>
+                <div class="mt-6 w-fit mx-auto">
+                    <img src="https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe" class="rounded-full w-28 "
+                        alt="profile picture" srcset="">
+                </div>
+                <div class="mt-8 ">
+                    <h2 class="text-white font-bold text-2xl tracking-wide username">${elem.username}</h2>
+                </div>
+                <div class="mt-3 text-white text-sm email">
+                    <span class="text-gray-400 font-semibold">Email:</span>
+                    <span>${elem.email}</span>
+                </div>
+                <div class="mt-3 text-white text-sm balance">
+                    <span class="text-gray-400 font-semibold">Balance:</span>
+                    <span>${elem.balance}</span>
+                </div>
+                <div class="mt-3 text-white text-sm balance">
+                    <span class="text-gray-400 font-semibold">Orders:</span>
+                    <span>${elem.orders}</span>
+                </div>
+            </section>
         </section>
-
-
-    </section>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./script/profile.js"></script>
 
 </body>
 

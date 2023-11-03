@@ -26,7 +26,7 @@ signBtn.addEventListener("click", function (e) {
                     "password": signPassword.value,
                     "email": signEmail.value,
                     "balance": signBalance.value,
-                    "orders": orders
+                    "orders": "test"
                 }),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8"

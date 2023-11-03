@@ -3,16 +3,19 @@ let logPassword = document.querySelector("#password")
 let logBtn = document.querySelector("#logBtn")
 let url = "http://localhost:3000/users"
 let isLogged = false
+let loginId
 
 logBtn.addEventListener("click", function (e) {
     e.preventDefault()
     fetch(url).then(res => res.json()).then(data => {
-        // console.log(data);
+        console.log(data);
         data.forEach(element => {
             if (element.username == logName.value && element.password == logPassword.value) {
                 console.log("success")
                 isLogged = true
-                localStorage.setItem("login", JSON.stringify(isLogged))
+                loginId = element.id
+                // localStorage.setItem("login", JSON.stringify(isLogged))
+                localStorage.setItem("loginId", JSON.stringify(loginId))
                 window.location.href = "./index.html"
             }
             else {
