@@ -1,11 +1,12 @@
 let cartList = document.querySelector(".cartList");
 let cartItemCount = document.querySelector(".cartItemCount");
 let sup = document.querySelector("sup");
-let localCart = JSON.parse(localStorage.getItem("cartMeals"));
 let totalPriceInCheckOut = document.querySelector(".totalPriceInCheckOut");
 let count = 0;
 let total = 0;
 // sup.textContent=JSON.parse(localStorage.getItem("cartMeals")).length()
+let localCart = []
+
 for (let index = 0; index < localCart.length; index++) {
     let elem = localCart[index];
     count++;
@@ -86,9 +87,9 @@ for (let index = 0; index < localCart.length; index++) {
                 localStorage.setItem("cartMeals", JSON.stringify(localCart));
                 let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
                 let sup = document.querySelector("sup")
-                
-                    sup.textContent = cartMeals.length;
-                
+
+                sup.textContent = cartMeals.length;
+
             });
         }
         //remove all
@@ -102,9 +103,9 @@ for (let index = 0; index < localCart.length; index++) {
             totalPriceInCheckOut.textContent = "$0"
             let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
             let sup = document.querySelector("sup")
-            
-                sup.textContent = "0";
-            
+
+            sup.textContent = "0";
+
         })
     }
 
@@ -130,6 +131,18 @@ function changeTotalPriceCheckout() {
     totalPriceInCheckOut.textContent = `$${totalPriceInCheckOutSum.toFixed(2)}`;
 }
 
+let checkBtn = document.querySelector(".checkBtn")
+console.log();
+checkBtn.addEventListener("click", function (e) {
+    e.preventDefault()
+    if (JSON.parse(localStorage.getItem("login"))) {
+        if (JSON.parse(localStorage.getItem("login"))) {
+            window.location.href = './checkout.html'
+        }
 
-
-
+    }
+    else {
+        window.location.href = './login.html'
+        console.log("chek");
+    }
+})

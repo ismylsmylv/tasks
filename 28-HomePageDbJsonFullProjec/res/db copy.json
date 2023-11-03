@@ -1,104 +1,144 @@
 {
     "singers": [
-        {
-            "id": 1,
-            "name": "Adele",
-            "age": 35,
-            "nation": "British",
-            "image": "https://ca-times.brightspotcdn.com/dims4/default/1a071c7/2147483647/strip/true/crop/4130x2753+0+0/resize/1200x800!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F20%2F97%2F8efe5252454bb8e81b911ef18f17%2Fbritain-brit-awards-2022-arrivals-05121.jpg",
-            "genre": "jazz",
-            "price": 250
-        },
-        {
-            "id": 2,
-            "name": "Beyonce",
-            "age": 42,
-            "nation": "American ",
-            "image": "https://www.lifeandstylemag.com/wp-content/uploads/2023/09/What-Is-Beyonces-Real-Name-and-Age-Story-Behind-Moniker.jpg?crop=0px%2C117px%2C2567px%2C1454px&resize=940%2C529&quality=86&strip=all",
-            "genre": "dance pop",
-            "price": 350
-        },
-        {
-            "id": 3,
-            "name": "Ed Sheeran",
-            "age": 32,
-            "nation": "British",
-            "image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/12/05/18/Ed-Sheeran.jpg",
-            "genre": "pop",
-            "price": 150
-        },
-        {
-            "id": 4,
-            "name": "The Weeknd",
-            "age": 32,
-            "nation": "Canadian",
-            "image": "https://static.euronews.com/articles/stories/07/60/76/12/1024x538_cmsv2_ff9b3851-2a13-5de3-8b19-c0ab081608c1-7607612.jpg",
-            "genre": "R&B",
-            "price": 100
-        },
-        {
-            "id": 5,
-            "name": "Kanye West",
-            "age": 45,
-            "nation": "American",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8MRT0xq5w6ASlmO8lV_unwkXAuZgO3x4GmQ&usqp=CAU",
-            "genre": "hip hop",
-            "price": 50
-        },
-        {
-            "id": 6,
-            "name": "Joji",
-            "age": 30,
-            "nation": "Japanese",
-            "image": "https://miro.medium.com/v2/resize:fit:1060/1*GHpxYoxSAp2GK_tlEWQX8w.jpeg",
-            "genre": "alternative R&B",
-            "price": 150
-        },
-        {
-            "id": 7,
-            "name": "Frank Ocean",
-            "age": 35,
-            "nation": "American",
-            "image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/04/08/09/frank-ocean-blonde.jpg?quality=75&width=1200&auto=webp",
-            "genre": "R&B",
-            "price": 120
-        }
+      {
+        "id": 1,
+        "name": "Adele",
+        "age": 35,
+        "nation": "British",
+        "image": "https://ca-times.brightspotcdn.com/dims4/default/1a071c7/2147483647/strip/true/crop/4130x2753+0+0/resize/1200x800!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F20%2F97%2F8efe5252454bb8e81b911ef18f17%2Fbritain-brit-awards-2022-arrivals-05121.jpg",
+        "genre": "jazz",
+        "price": 250
+      },
+      {
+        "id": 2,
+        "name": "Beyonce",
+        "age": 42,
+        "nation": "American ",
+        "image": "https://www.lifeandstylemag.com/wp-content/uploads/2023/09/What-Is-Beyonces-Real-Name-and-Age-Story-Behind-Moniker.jpg?crop=0px%2C117px%2C2567px%2C1454px&resize=940%2C529&quality=86&strip=all",
+        "genre": "dance pop",
+        "price": 350
+      },
+      {
+        "id": 3,
+        "name": "Ed Sheeran",
+        "age": 32,
+        "nation": "British",
+        "image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/12/05/18/Ed-Sheeran.jpg",
+        "genre": "pop",
+        "price": 150
+      },
+      {
+        "id": 4,
+        "name": "The Weeknd",
+        "age": 32,
+        "nation": "Canadian",
+        "image": "https://static.euronews.com/articles/stories/07/60/76/12/1024x538_cmsv2_ff9b3851-2a13-5de3-8b19-c0ab081608c1-7607612.jpg",
+        "genre": "R&B",
+        "price": 100
+      },
+      {
+        "id": 5,
+        "name": "Kanye West",
+        "age": 45,
+        "nation": "American",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8MRT0xq5w6ASlmO8lV_unwkXAuZgO3x4GmQ&usqp=CAU",
+        "genre": "hip hop",
+        "price": 50
+      },
+      {
+        "id": 6,
+        "name": "Joji",
+        "age": 30,
+        "nation": "Japanese",
+        "image": "https://miro.medium.com/v2/resize:fit:1060/1*GHpxYoxSAp2GK_tlEWQX8w.jpeg",
+        "genre": "alternative R&B",
+        "price": 150
+      },
+      {
+        "id": 7,
+        "name": "Frank Ocean",
+        "age": 35,
+        "nation": "American",
+        "image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/04/08/09/frank-ocean-blonde.jpg?quality=75&width=1200&auto=webp",
+        "genre": "R&B",
+        "price": 120
+      }
     ],
     "meals": [
-        {
-            "id": 1,
-            "name": "Margherita",
-            "price": 12,
-            "ingredients": [
-                "tomato sauce",
-                "mozzarella cheese",
-                "basil"
-            ],
-            "image": "https://www.allrecipes.com/thmb/fFW1o307WSqFFYQ3-QXYVpnFj6E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/48727-Mikes-homemade-pizza-DDMFS-beauty-4x3-BG-2974-a7a9842c14e34ca699f3b7d7143256cf.jpg"
-        },
-        {
-            "id": 2,
-            "name": "Cheeseburger",
-            "price": 8,
-            "ingredients": [
-                "beef patty",
-                "cheddar cheese",
-                "lettuce",
-                "tomato"
-            ],
-            "image": "https://www.foodandwine.com/thmb/pwFie7NRkq4SXMDJU6QKnUKlaoI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Ultimate-Veggie-Burgers-FT-Recipe-0821-5d7532c53a924a7298d2175cf1d4219f.jpg"
-        },
-        {
-            "id": 3,
-            "name": "Spaghetti Carbonara",
-            "price": 16,
-            "ingredients": [
-                "spaghetti pasta",
-                "bacon",
-                "eggs",
-                "parmesan cheese"
-            ],
-            "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/02/05/Baked-Feta-Pasta-4_s4x3.jpg.rend.hgtvcom.616.493.suffix/1615916524567.jpeg"
-        }
+      {
+        "id": 1,
+        "name": "Margherita",
+        "price": 12,
+        "ingredients": [
+          "tomato sauce",
+          "mozzarella cheese",
+          "basil"
+        ],
+        "image": "https://www.allrecipes.com/thmb/fFW1o307WSqFFYQ3-QXYVpnFj6E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/48727-Mikes-homemade-pizza-DDMFS-beauty-4x3-BG-2974-a7a9842c14e34ca699f3b7d7143256cf.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Cheeseburger",
+        "price": 8,
+        "ingredients": [
+          "beef patty",
+          "cheddar cheese",
+          "lettuce",
+          "tomato"
+        ],
+        "image": "https://www.foodandwine.com/thmb/pwFie7NRkq4SXMDJU6QKnUKlaoI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Ultimate-Veggie-Burgers-FT-Recipe-0821-5d7532c53a924a7298d2175cf1d4219f.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Spaghetti Carbonara",
+        "price": 16,
+        "ingredients": [
+          "spaghetti pasta",
+          "bacon",
+          "eggs",
+          "parmesan cheese"
+        ],
+        "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/02/05/Baked-Feta-Pasta-4_s4x3.jpg.rend.hgtvcom.616.493.suffix/1615916524567.jpeg"
+      }
+    ],
+    "users": [
+      {
+        "id": 2,
+        "username": "janedoe",
+        "password": "password456",
+        "email": "janedoe@example.com",
+        "balance": 200,
+        "orders": [
+          {
+            "id": 12,
+            "totalPrice": 345,
+            "orderDate": "Nov 1 2023, 12:43"
+          },
+          {
+            "id": 54,
+            "totalPrice": 12,
+            "orderDate": "Dec 12 2023, 23:43"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "username": "jimdoe",
+        "password": "password789",
+        "email": "jimdoe@example.com",
+        "balance": 300,
+        "orders": [
+          {
+            "id": 12,
+            "totalPrice": 345,
+            "orderDate": "Nov 1 2023, 12:43"
+          },
+          {
+            "id": 54,
+            "totalPrice": 12,
+            "orderDate": "Dec 12 2023, 23:43"
+          }
+        ]
+      }
     ]
-}
+  }
