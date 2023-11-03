@@ -244,6 +244,13 @@
       "email": "cahi@mailinator.com",
       "balance": "156",
       "id": 19
+    },
+    {
+      "username": "febelery",
+      "password": "Pa$$w0rd!",
+      "email": "metesixyzo@mailinator.com",
+      "balance": "886",
+      "id": 20
     }
   ]
 }

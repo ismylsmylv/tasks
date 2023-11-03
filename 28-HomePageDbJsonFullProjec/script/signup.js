@@ -8,7 +8,8 @@ let url = "http://localhost:3000/users"
 
 signBtn.addEventListener("click", function (e) {
     e.preventDefault()
-    if (signName.value == false || signPassword.value == false || signEmail.value == false || signBalance.value == false) {
+    // let signNameLen = (signName.value).length()
+    if (signName.value ==false || signPassword.value == false || signEmail.value == false || signBalance.value < 0) {
         Swal.fire({
             icon: 'error',
             title: 'Provide details',
@@ -35,10 +36,8 @@ signBtn.addEventListener("click", function (e) {
         //     icon: 'success',
         //     title: 'Signed up succesfully',
         // })
-        window.location.href='./login.html'
+        window.location.href = './login.html'
     }
 
 }
-).then(res => res.json()).then(data => {
-
-})
+)
