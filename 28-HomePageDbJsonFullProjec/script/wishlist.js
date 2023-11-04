@@ -92,3 +92,23 @@ for (let elem of favCart) {
         }
 
 }
+
+let isLogged=JSON.parse(localStorage.getItem("loginId"))
+console.log(isLogged);
+let profile=document.querySelector("#profile")
+let logOut=document.querySelector("#logOut")
+let login=document.querySelector("#login")
+let signup=document.querySelector("#signup")
+if(isLogged){
+  login.style.display="none"
+  signup.style.display="none"
+}
+else{
+  profile.style.display="none"
+  logOut.style.display="none"
+}
+logOut.addEventListener("click", function(e){
+  e.preventDefault()
+  localStorage.removeItem("loginId")
+  window.location.href='./index.html'
+})

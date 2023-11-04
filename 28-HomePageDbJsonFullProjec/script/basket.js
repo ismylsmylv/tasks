@@ -1,3 +1,26 @@
+let isLogged = JSON.parse(localStorage.getItem("loginId"))
+console.log(isLogged);
+let profile = document.querySelector("#profile")
+let logOut = document.querySelector("#logOut")
+let login = document.querySelector("#login")
+let signup = document.querySelector("#signup")
+let finOrders = JSON.parse(localStorage.getItem("finOrders")) || [];
+if((JSON.parse(localStorage.getItem("finOrders")))){
+    finOrders=[...finOrders]
+}
+if (isLogged) {
+    login.style.display = "none"
+    signup.style.display = "none"
+}
+else {
+    profile.style.display = "none"
+    logOut.style.display = "none"
+}
+logOut.addEventListener("click", function (e) {
+    e.preventDefault()
+    localStorage.removeItem("loginId")
+    window.location.href = './index.html'
+})
 let cartList = document.querySelector(".cartList");
 let cartItemCount = document.querySelector(".cartItemCount");
 let sup = document.querySelector("sup");
@@ -32,7 +55,7 @@ for (let index = 0; index < localCart.length; index++) {
                 d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
         </svg>
 
-        <input class="mx-2 border innerCount text-center w-8" type="text" value="1">
+        <input class="mx-2 border innerCount text-center w-8" type="text" value="${elem.count}">
 
         <svg class="fill-current increase text-gray-600 w-3" viewBox="0 0 448 512">
             <path
@@ -133,7 +156,7 @@ function changeTotalPriceCheckout() {
 
 }
 
-
+let orders = []
 let checkBtn = document.querySelector(".checkBtn")
 checkBtn.addEventListener("click", function (e) {
     e.preventDefault()
@@ -154,6 +177,14 @@ checkBtn.addEventListener("click", function (e) {
                             console.log(total);
                         }
                         else {
+                            let orders = JSON.parse(localStorage.getItem("cartMeals")) || [];
+
+
+                            for (let order of orders) {
+                                finOrders.push(order.name);
+                            }
+                            localStorage.setItem("finOrders", JSON.stringify(finOrders));
+                            console.log((JSON.parse(localStorage.getItem("cartMeals"))));
                             console.log("sent");
                             Swal.fire({
                                 icon: 'success',
@@ -170,9 +201,18 @@ checkBtn.addEventListener("click", function (e) {
                                     "password": user.password,
                                     "email": user.email,
                                     "balance": user.balance - totalForCheck,
-                                    "orders": localStorage.getItem("cartMeals")
+                                    "orders": finOrders 
                                 })
                             })
+                            cartList.innerHTML = ''
+                            localStorage.removeItem("cartMeals")
+                            total = 0
+                            cartItemCount.textContent = "0 Items"
+                            totalPriceInCheckOut.lastElementChild.textContent = "$0"
+                            let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+                            let sup = document.querySelector("sup")
+
+                            sup.textContent = "0";
 
                         }
                     }
@@ -192,3 +232,6 @@ console.log();
 let balance
 
 // let ordText=orderTotal.querySelector("span").textContent
+
+
+

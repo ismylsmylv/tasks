@@ -8,7 +8,7 @@ fetch(url)
       elem.count = 1;
       results.innerHTML += `
         <div class="card" style="width: 18rem;">
-          <img name="${elem.id}" src="${elem.image}" class="card-img-top" alt="singer">
+        <div class="cardImg"><img name="${elem.id}" src="${elem.image}" class="card-img-top" alt="singer"></div> 
           <div class="card-body">
             <h5 class="card-title">${elem.name}</h5>
             <p class="card-text">${elem.name} is <b>${elem.nation}</b></p>
@@ -22,12 +22,12 @@ fetch(url)
     let detailBtn = document.querySelectorAll(".details");
     detailBtn.forEach((btn) => {
       btn.addEventListener("click", function (e) {
-          e.preventDefault();
-          console.log(btn.getAttribute("name"));
-          let elemId = btn.getAttribute("name");
-          window.location.href = `details.html?id=${elemId}`;
+        e.preventDefault();
+        console.log(btn.getAttribute("name"));
+        let elemId = btn.getAttribute("name");
+        window.location.href = `details.html?id=${elemId}`;
       });
-  });
+    });
 
     // Favorites
     let favItemsArr = [];
@@ -44,7 +44,7 @@ fetch(url)
 
     favorites.forEach((btn) => {
       let isFavorite = favItemsArr.some((fav) => fav.id == btn.getAttribute("name"));
-      
+
       if (isFavorite) {
         btn.querySelector("i").classList.add("fa-solid", "fa-regular");
       }
@@ -57,17 +57,17 @@ fetch(url)
           icon.classList.remove("fa-solid")
           icon.classList.add("fa-regular");
           favItemsArr = favItemsArr.filter((elem) => elem.id != this.getAttribute("name"));
-         
+
         } else {
           icon.classList.add("fa-solid", "fa-regular");
           favItemsArr.push(data.find((elem) => elem.id == this.getAttribute("name")));
-          
+
         }
 
         localStorage.setItem("favorites", JSON.stringify(favItemsArr));
         let sup = document.querySelector(".favSup")
-          let favoritesLocal = JSON.parse(localStorage.getItem("favorites"));
-          sup.textContent = favoritesLocal.length;
+        let favoritesLocal = JSON.parse(localStorage.getItem("favorites"));
+        sup.textContent = favoritesLocal.length;
       });
     });
 
@@ -116,3 +116,23 @@ fetch(url)
       sup.textContent = (JSON.parse(localStorage.getItem('cartMeals'))).length;
     }
   });
+
+let isLogged = JSON.parse(localStorage.getItem("loginId"))
+console.log(isLogged);
+let profile = document.querySelector("#profile")
+let logOut = document.querySelector("#logOut")
+let login = document.querySelector("#login")
+let signup = document.querySelector("#signup")
+if (isLogged) {
+  login.style.display = "none"
+  signup.style.display = "none"
+}
+else {
+  profile.style.display = "none"
+  logOut.style.display = "none"
+}
+logOut.addEventListener("click", function (e) {
+  e.preventDefault()
+  localStorage.removeItem("loginId")
+  window.location.href = './index.html'
+})

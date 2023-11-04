@@ -15,6 +15,7 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://www.greensoftwaredesign.com/wp-content/uploads/2021/09/GruenesAugeSyngenioAG.png">
     <link rel="stylesheet" href="./css/main.css">
 
     <title>Profile</title>
@@ -22,6 +23,7 @@
 
 <body>
     <nav>
+        <div class="container" style="display: flex; align-items:center; justify-content: space-between;">
         <a href="./index.html" class="logo"><img
                 src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png" alt="logo"></a>
         <div class="navigation">
@@ -29,13 +31,15 @@
             <a href="./meals.html">Meals</a>
             <a href="./basket.html">Basket<sup>0</sup></a>
             <a href="./wishlist.html">Wishlist<sup class="favSup">0</sup></a>
-            <a href="./profile.html">Profile</a>
-            <a href="./login.html" class="btn btn-light">Login</a>
-            <a href="./signup.html" class="btn btn-dark">Register</a>
+            <a href="./profile.html" id="profile">Profile</a>
+            <a href="" id="logOut"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            <a href="./login.html" id="login" class="btn btn-light">Login</a>
+            <a href="./signup.html" id="signup" class="btn btn-dark">Register</a>
+        </div>
         </div>
     </nav>
     <div class="content">
-        <section style="font-family: Montserrat"
+        <!-- <section style="font-family: Montserrat"
             class=" bg-[#ffffff] flex font-medium items-center justify-center mt-6">
             <section class="w-64 mx-auto bg-[#374151] rounded-2xl px-8 py-6 shadow-lg">
                 <div class="flex items-center justify-between">
@@ -60,7 +64,7 @@
                     <span>${elem.orders}</span>
                 </div>
             </section>
-        </section>
+        </section> -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./script/profile.js"></script>

@@ -41,10 +41,19 @@ nav a:hover {
 .card img {
   height: 150px;
   object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.cardImg {
+  overflow: hidden;
 }
 
 .results {
   padding: 20px;
+}
+
+.card-img-top:hover {
+  transform: scale(1.1);
 }
 
 input {
@@ -93,7 +102,4 @@ input {
 }
 .bigCard .bigCardFooter {
   padding: 15px;
-}
-.linearRed {
-  color: red;
-}
+}/*# sourceMappingURL=main.css.map */

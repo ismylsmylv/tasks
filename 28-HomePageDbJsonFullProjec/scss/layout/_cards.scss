@@ -1,11 +1,20 @@
-.card{
+.card {
     margin: 10px;
     padding: 0;
 }
-.card img{
+
+.card img {
     height: 150px;
     object-fit: cover;
+    transition: transform 0.5s;
 }
-.results{
+.cardImg{
+    overflow: hidden;
+}
+.results {
     padding: 20px;
+}
+
+.card-img-top:hover {
+    transform: scale(1.1);
 }

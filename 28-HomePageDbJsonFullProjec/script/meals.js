@@ -17,7 +17,7 @@ fetch(url)
 
             results.innerHTML += `
         <div class="card" style="width: 18rem;">
-          <img name="${elem.id}" src="${elem.image}" class="card-img-top" alt="singer">
+        <div class="cardImg"><img name="${elem.id}" src="${elem.image}" class="card-img-top" alt="singer"></div> 
           <div class="card-body">
             <h5 class="card-title">${elem.name}</h5>
             <p class="card-text">${elem.ingredients}</p>
@@ -139,3 +139,23 @@ fetch(url)
     });
 
 
+
+    let isLogged=JSON.parse(localStorage.getItem("loginId"))
+console.log(isLogged);
+let profile=document.querySelector("#profile")
+let logOut=document.querySelector("#logOut")
+let login=document.querySelector("#login")
+let signup=document.querySelector("#signup")
+if(isLogged){
+  login.style.display="none"
+  signup.style.display="none"
+}
+else{
+  profile.style.display="none"
+  logOut.style.display="none"
+}
+logOut.addEventListener("click", function(e){
+  e.preventDefault()
+  localStorage.removeItem("loginId")
+  window.location.href='./index.html'
+})
