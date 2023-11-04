@@ -144,7 +144,7 @@ for (let index = 0; index < localCart.length; index++) {
                     sum += parseFloat(elem.textContent.replace("$", ""));
                     totalForCheck.textContent = `$${sum}.00`
                     console.log(totalForCheck);
-                    //let itemTotal = parseFloat(totalAll.textContent.replace("$", ""));
+                    let itemTotal = parseFloat(elem.textContent.replace("$", ""));
                     count--;
                     cartItemCount.textContent = `${count} items`;
                     total -= itemTotal;

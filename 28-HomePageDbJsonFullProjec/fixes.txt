@@ -1,0 +1,12 @@
+1. search singer
+2. wish count on meals and basket 	+
+3. increase and decrease should change also local storage
+4. remove whitespace between basket item name and remove button		+
+5. remove should refresh without refreshing tab in cart
+6. removeall changes total content to $0	+
+7. details should load when item in wishlist	+
+8. change all to scss from inline css
+9. green favicon 	+
+10. trash removes item both api and html
+11. orders with date and id
+12. use url/id instead of searching one
