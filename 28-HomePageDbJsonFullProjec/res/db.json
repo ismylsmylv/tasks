@@ -221,8 +221,13 @@
       "username": "ismyl",
       "password": "ismyl",
       "email": "ismyl@com",
-      "balance": 2,
+      "balance": 23150,
       "orders": [
+        "Margherita",
+        "Cheeseburger",
+        "Margherita",
+        "Cheeseburger",
+        "Margherita",
         "Cheeseburger"
       ],
       "id": 16
@@ -350,6 +355,18 @@
       "balance": "12091209",
       "orders": [],
       "id": 30
+    },
+    {
+      "username": "gupymuhir",
+      "password": "Pa$$w0rd!",
+      "email": "goma@mailinator.com",
+      "balance": 433,
+      "orders": [
+        "Margherita",
+        "Spaghetti Carbonara",
+        "Cheeseburger"
+      ],
+      "id": 31
     }
   ]
 }

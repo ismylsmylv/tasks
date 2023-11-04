@@ -7,13 +7,12 @@ fetch(url)
         data.forEach((elem, i) => {
             elem.count = 1
             let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
-            if(cartMeals){
-            let sup = document.querySelector("sup")
-            if (data) {
-                sup.textContent = cartMeals.length;
+            if (cartMeals) {
+                let sup = document.querySelector("sup")
+                if (data) {
+                    sup.textContent = cartMeals.length;
+                }
             }
-            }
-            
 
             results.innerHTML += `
         <div class="card" style="width: 18rem;">
@@ -78,8 +77,18 @@ fetch(url)
                 }
             })
         })
-
-        
+        let favItemsArr = [];
+        let favItems = []
+        if (favItems) {
+            favItemsArr = [...favItems];
+            let sup = document.querySelector(".favSup")
+            let favoritesLocal = JSON.parse(localStorage.getItem("favorites"));
+            sup.textContent = favoritesLocal.length;
+        }
+        else {
+            let favoritesLocal = JSON.parse(localStorage.getItem("favorites"));
+            sup.textContent = favoritesLocal.length;
+        }
         //cart
         let cart = document.querySelectorAll(".cart")
         let cartItemsMealArr = []
@@ -107,8 +116,8 @@ fetch(url)
                     })
                     let sup = document.querySelector("sup")
                     let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
-                        sup.textContent = cartMeals.length;
-                    
+                    sup.textContent = cartMeals.length;
+
                 }
                 else {
                     console.log(this.classList);
@@ -124,8 +133,8 @@ fetch(url)
                     })
                     let sup = document.querySelector("sup")
                     let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
-                        sup.textContent = cartMeals.length;
-                    
+                    sup.textContent = cartMeals.length;
+
                 }
             })
         }
@@ -140,22 +149,22 @@ fetch(url)
 
 
 
-    let isLogged=JSON.parse(localStorage.getItem("loginId"))
+let isLogged = JSON.parse(localStorage.getItem("loginId"))
 console.log(isLogged);
-let profile=document.querySelector("#profile")
-let logOut=document.querySelector("#logOut")
-let login=document.querySelector("#login")
-let signup=document.querySelector("#signup")
-if(isLogged){
-  login.style.display="none"
-  signup.style.display="none"
+let profile = document.querySelector("#profile")
+let logOut = document.querySelector("#logOut")
+let login = document.querySelector("#login")
+let signup = document.querySelector("#signup")
+if (isLogged) {
+    login.style.display = "none"
+    signup.style.display = "none"
 }
-else{
-  profile.style.display="none"
-  logOut.style.display="none"
+else {
+    profile.style.display = "none"
+    logOut.style.display = "none"
 }
-logOut.addEventListener("click", function(e){
-  e.preventDefault()
-  localStorage.removeItem("loginId")
-  window.location.href='./index.html'
+logOut.addEventListener("click", function (e) {
+    e.preventDefault()
+    localStorage.removeItem("loginId")
+    window.location.href = './index.html'
 })

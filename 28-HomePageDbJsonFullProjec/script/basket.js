@@ -5,8 +5,30 @@ let logOut = document.querySelector("#logOut")
 let login = document.querySelector("#login")
 let signup = document.querySelector("#signup")
 let finOrders = JSON.parse(localStorage.getItem("finOrders")) || [];
-if((JSON.parse(localStorage.getItem("finOrders")))){
-    finOrders=[...finOrders]
+
+let localCart
+if (!JSON.parse(localStorage.getItem("cartMeals"))) {
+    localCart = []
+}
+else {
+    localCart = JSON.parse(localStorage.getItem("cartMeals"))
+}
+
+let favItemsArr = [];
+let favItems = []
+if (favItems) {
+    favItemsArr = [...favItems];
+    let sup = document.querySelector(".favSup")
+    let favoritesLocal = JSON.parse(localStorage.getItem("favorites"));
+    sup.textContent = favoritesLocal.length;
+}
+else {
+    let favoritesLocal = JSON.parse(localStorage.getItem("favorites"));
+    sup.textContent = favoritesLocal.length;
+}
+
+if ((JSON.parse(localStorage.getItem("finOrders")))) {
+    finOrders = [...finOrders]
 }
 if (isLogged) {
     login.style.display = "none"
@@ -24,7 +46,6 @@ logOut.addEventListener("click", function (e) {
 let cartList = document.querySelector(".cartList");
 let cartItemCount = document.querySelector(".cartItemCount");
 let sup = document.querySelector("sup");
-let localCart = JSON.parse(localStorage.getItem("cartMeals"));
 let totalPriceInCheckOut = document.querySelector(".totalPriceInCheckOut");
 let count = 0;
 let total = 0;
@@ -37,14 +58,14 @@ for (let index = 0; index < localCart.length; index++) {
     cartItemCount.textContent = `${count} items`;
 
     cartList.innerHTML += `
-       
-    <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+   
+    <div class="flex items-center hover:bg-gray-100 -mx-5 px-6 py-5">
     <div class="flex w-2/5"> <!-- product -->
         <div class="w-20">
             <img class="h-24" style="object-fit:cover" src="${elem.image}"
                 alt="">
         </div>
-        <div class="flex flex-col justify-between ml-4 flex-grow">
+        <div class="flex flex-col justify-between ml-4 flex-grow" style=" justify-content: space-around;">
             <span class="font-bold text-sm">${elem.name}</span>
             <a class="removeCart font-semibold hover:text-red-500 text-gray-500 text-xs" style="cursor:pointer; color:red">Remove</a>
         </div>
@@ -123,10 +144,10 @@ for (let index = 0; index < localCart.length; index++) {
             localStorage.removeItem("cartMeals")
             total = 0
             cartItemCount.textContent = "0 Items"
-            totalPriceInCheckOut.lastElementChild.textContent = "$0"
             let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
             let sup = document.querySelector("sup")
-
+            let totalForCheckRaw = document.querySelector("#totalForCheck")
+            totalForCheckRaw.textContent = "$0"
             sup.textContent = "0";
 
         })
@@ -141,6 +162,8 @@ function changeTotalAll(price, count, totalAllElement, index) {
     localCart[index].count = count;
     localStorage.setItem("cartMeals", JSON.stringify(localCart));
     changeTotalPriceCheckout();
+    let totalForCheckRaw = document.querySelector("#totalForCheck")
+    totalForCheckRaw.textContent = "$0"
 }
 
 function changeTotalPriceCheckout() {
@@ -152,7 +175,8 @@ function changeTotalPriceCheckout() {
     });
 
     totalPriceInCheckOut.textContent = `$${totalPriceInCheckOutSum.toFixed(2)}`;
-    // console.log(totalPriceInCheckOutSum);
+    let totalForCheckRaw = document.querySelector("#totalForCheck")
+    totalForCheckRaw.textContent = "$0"
 
 }
 
@@ -201,14 +225,15 @@ checkBtn.addEventListener("click", function (e) {
                                     "password": user.password,
                                     "email": user.email,
                                     "balance": user.balance - totalForCheck,
-                                    "orders": finOrders 
+                                    "orders": finOrders
                                 })
                             })
                             cartList.innerHTML = ''
                             localStorage.removeItem("cartMeals")
                             total = 0
                             cartItemCount.textContent = "0 Items"
-                            totalPriceInCheckOut.lastElementChild.textContent = "$0"
+                            let totalForCheckRaw = document.querySelector("#totalForCheck")
+                            totalForCheckRaw.textContent = "$0"
                             let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
                             let sup = document.querySelector("sup")
 
@@ -232,6 +257,5 @@ console.log();
 let balance
 
 // let ordText=orderTotal.querySelector("span").textContent
-
 
 
