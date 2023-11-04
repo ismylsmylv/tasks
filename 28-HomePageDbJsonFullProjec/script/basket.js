@@ -1,5 +1,5 @@
 let isLogged = JSON.parse(localStorage.getItem("loginId"))
-console.log(isLogged);
+// console.log(isLogged);
 let profile = document.querySelector("#profile")
 let logOut = document.querySelector("#logOut")
 let login = document.querySelector("#login")
@@ -87,27 +87,41 @@ for (let index = 0; index < localCart.length; index++) {
     <span class="text-center w-1/5 font-semibold text-sm totalAll">$${elem.price}</span>
 </div>
     `;
-    total += elem.price;
-    totalPriceInCheckOut.textContent = `$${total.toFixed(2)}`;
+
+
+
+    let totalForCheck = document.querySelector("#totalForCheck")
+    let totalAll = document.querySelectorAll(".totalAll")
+    let sum = 0
+
+    for (let elem of totalAll) {
+        totalForCheck.textContent = `${sum}`
+        console.log(parseFloat(elem.textContent.replace("$", "")));
+        sum += parseFloat(elem.textContent.replace("$", ""));
+        totalForCheck.textContent = `$${sum}.00`
+        console.log(totalForCheck);
+    }
+
+
 
     let countBtns = document.querySelectorAll(".countBtns");
-
     //count changes
     for (let btn of countBtns) {
         let onePrice = parseInt(btn.nextElementSibling.lastChild.textContent)
-        console.log(onePrice);
+        // console.log(onePrice);
         let innerCount = btn.querySelector(".innerCount");
         let decreaseBtn = btn.querySelector(".decrease");
         let increaseBtn = btn.querySelector(".increase");
         let totalAll = btn.nextElementSibling.nextElementSibling;
+        totalAll.textContent = `$${(innerCount.value) * onePrice}.00`
+
 
         decreaseBtn.addEventListener("click", function () {
             let number = parseInt(innerCount.value);
-            console.log(onePrice);
-            if (number > 1) {
+            if (number > 0) {
                 number--;
                 innerCount.value = number;
-                changeTotalAll + -(onePrice, number, totalAll, index);
+                changeTotalAll(onePrice, number, totalAll, index);
             }
         });
 
@@ -118,21 +132,36 @@ for (let index = 0; index < localCart.length; index++) {
             changeTotalAll(onePrice, number, totalAll, index);
         });
 
+
+        //remove one
         let removeCart = document.querySelectorAll(".removeCart");
         for (let btn of removeCart) {
             btn.addEventListener("click", function () {
-                let itemTotal = parseFloat(totalAll.textContent.replace("$", ""));
-                count--;
-                cartItemCount.textContent = `${count} items`;
-                total -= itemTotal;
-                totalPriceInCheckOut.textContent = `$${total.toFixed(2)}`;
-                this.parentElement.parentElement.parentElement.remove();
-                localCart.splice(index, 1);
-                localStorage.setItem("cartMeals", JSON.stringify(localCart));
-                let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
-                let sup = document.querySelector("sup")
+                totalAll = document.querySelectorAll(".totalAll")
+                for (let elem of totalAll) {
+                    totalForCheck.textContent = `${sum}`
+                    console.log(parseFloat(elem.textContent.replace("$", "")));
+                    sum += parseFloat(elem.textContent.replace("$", ""));
+                    totalForCheck.textContent = `$${sum}.00`
+                    console.log(totalForCheck);
+                    //let itemTotal = parseFloat(totalAll.textContent.replace("$", ""));
+                    count--;
+                    cartItemCount.textContent = `${count} items`;
+                    total -= itemTotal;
+                    totalPriceInCheckOut.textContent = `$${(total.textContent - totalAll.textContent).toFixed(2)}`;
+                    this.parentElement.parentElement.parentElement.remove();
+                    localCart.splice(index, 1);
+                    localStorage.setItem("cartMeals", JSON.stringify(localCart));
+                    let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+                }
 
+
+                //change cart count
+                let sup = document.querySelector("sup")
                 sup.textContent = cartMeals.length;
+                console.log(elem);
+                // console.log(this);
+
 
             });
         }
@@ -162,8 +191,7 @@ function changeTotalAll(price, count, totalAllElement, index) {
     localCart[index].count = count;
     localStorage.setItem("cartMeals", JSON.stringify(localCart));
     changeTotalPriceCheckout();
-    let totalForCheckRaw = document.querySelector("#totalForCheck")
-    totalForCheckRaw.textContent = "$0"
+
 }
 
 function changeTotalPriceCheckout() {
@@ -176,17 +204,30 @@ function changeTotalPriceCheckout() {
 
     totalPriceInCheckOut.textContent = `$${totalPriceInCheckOutSum.toFixed(2)}`;
     let totalForCheckRaw = document.querySelector("#totalForCheck")
-    totalForCheckRaw.textContent = "$0"
+    return totalForCheckRaw
 
 }
 
+
+
+//checkout
 let orders = []
 let checkBtn = document.querySelector(".checkBtn")
+
+
+
 checkBtn.addEventListener("click", function (e) {
     e.preventDefault()
     let totalForCheckRaw = document.querySelector("#totalForCheck")
     let totalForCheck = parseFloat(totalForCheckRaw.textContent.replace("$", ""))
-    if (JSON.parse(localStorage.getItem("loginId"))) {
+    if (totalForCheckRaw.textContent = "$0") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Add items to cart first',
+            text: '',
+        })
+    }
+    else if (JSON.parse(localStorage.getItem("loginId"))) {
         if (JSON.parse(localStorage.getItem("loginId"))) {
             fetch("http://localhost:3000/users/").then(res => res.json()).then(data => {
                 for (let user of data) {
@@ -198,7 +239,7 @@ checkBtn.addEventListener("click", function (e) {
                                 title: 'Insufficent funds',
                                 text: '',
                             })
-                            console.log(total);
+                            // console.log(total);
                         }
                         else {
                             let orders = JSON.parse(localStorage.getItem("cartMeals")) || [];
@@ -208,8 +249,8 @@ checkBtn.addEventListener("click", function (e) {
                                 finOrders.push(order.name);
                             }
                             localStorage.setItem("finOrders", JSON.stringify(finOrders));
-                            console.log((JSON.parse(localStorage.getItem("cartMeals"))));
-                            console.log("sent");
+                            // console.log((JSON.parse(localStorage.getItem("cartMeals"))));
+                            // console.log("sent");
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Order completed',
@@ -251,11 +292,5 @@ checkBtn.addEventListener("click", function (e) {
     }
 
 })
-
-
-console.log();
-let balance
-
-// let ordText=orderTotal.querySelector("span").textContent
 
 
