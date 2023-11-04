@@ -221,7 +221,7 @@
       "username": "ismyl",
       "password": "ismyl",
       "email": "ismyl@com",
-      "balance": 22830,
+      "balance": 22790,
       "orders": [
         "Margherita",
         "Cheeseburger",
@@ -242,7 +242,9 @@
         "Spaghetti Carbonara",
         "Cheeseburger",
         "Spaghetti Carbonara",
-        "Margherita"
+        "Margherita",
+        "Spaghetti Carbonara",
+        "Cheeseburger"
       ],
       "id": 16
     },

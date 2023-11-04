@@ -143,7 +143,7 @@ for (let index = 0; index < localCart.length; index++) {
                     console.log(parseFloat(elem.textContent.replace("$", "")));
                     sum += parseFloat(elem.textContent.replace("$", ""));
                     totalForCheck.textContent = `$${sum}.00`
-                    console.log(totalForCheck);
+                    // console.log(totalForCheck);
                     let itemTotal = parseFloat(elem.textContent.replace("$", ""));
                     count--;
                     cartItemCount.textContent = `${count} items`;
@@ -153,6 +153,7 @@ for (let index = 0; index < localCart.length; index++) {
                     localCart.splice(index, 1);
                     localStorage.setItem("cartMeals", JSON.stringify(localCart));
                     let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
+                    location.reload()
                 }
 
 
@@ -220,7 +221,7 @@ checkBtn.addEventListener("click", function (e) {
     e.preventDefault()
     let totalForCheckRaw = document.querySelector("#totalForCheck")
     let totalForCheck = parseFloat(totalForCheckRaw.textContent.replace("$", ""))
-    if (totalForCheckRaw.textContent = "$0") {
+    if (totalForCheckRaw.textContent == "$0") {
         Swal.fire({
             icon: 'error',
             title: 'Add items to cart first',
@@ -277,7 +278,6 @@ checkBtn.addEventListener("click", function (e) {
                             totalForCheckRaw.textContent = "$0"
                             let cartMeals = JSON.parse(localStorage.getItem("cartMeals"));
                             let sup = document.querySelector("sup")
-
                             sup.textContent = "0";
 
                         }
