@@ -19,9 +19,10 @@ function Hello(props) {
     )
 }
 
-export default Hello
 Hello.proptype = {
     name: PropTypes.string,
+    surname: PropTypes.string,
     age: PropTypes.number,
-    hobbies: PropTypes.array
+    hobbies: PropTypes.array.isRequired
 }
+export default Hello
