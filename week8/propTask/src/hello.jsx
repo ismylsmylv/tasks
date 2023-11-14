@@ -2,10 +2,12 @@ import React from 'react'
 import PropTypes from "prop-types";
 function Hello(props) {
     let arr = props.hobbies
+    // let { name, surname, age, hobbies } = props
     return (
         <>
 
             <h4>{props.name} {props.surname}, {props.age}</h4>
+            {/* <h4>{name} {surname}, {age}</h4> */}
             <ul>
                 {
                     arr.map((elem, i) => {
@@ -18,7 +20,7 @@ function Hello(props) {
 }
 
 export default Hello
-Hello.prototype = {
+Hello.proptype = {
     name: PropTypes.string,
     age: PropTypes.number,
     hobbies: PropTypes.array
