@@ -9,6 +9,7 @@ function App() {
   return (
     <>
       {/* count */}
+      <h2>Counter</h2>
       <Counter />
     </>
   )
