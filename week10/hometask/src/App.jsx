@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Counter from './components/Counter'
 import TodoList from './components/TodoList'
+import ApiMethods from './components/ApiMethods'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -16,6 +17,9 @@ function App() {
       {/* todo */}
       <h2>Todo</h2>
       <TodoList />
+      <br />
+      {/* api */}
+      <ApiMethods />
     </>
   )
 }

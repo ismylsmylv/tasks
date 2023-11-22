@@ -9,7 +9,7 @@ function TodoList() {
                     setinput(e.target.value)
                     console.log(e.target.value)
                 }
-            } />
+            } placeholder='todo' />
             <button onClick={() => {
                 setinput("")
                 console.log(list)
