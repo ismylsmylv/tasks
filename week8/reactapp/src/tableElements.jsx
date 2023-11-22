@@ -1,8 +1,8 @@
 import React from 'react'
 
-function TableElements() {
+function TableElements(props) {
     return (
-        <p>element</p>
+        <p>{props}</p>
     )
 }
 

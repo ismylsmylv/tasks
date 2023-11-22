@@ -4,7 +4,7 @@ import TableElements from './tableElements'
 function Datas() {
     return (
         <div>
-            <TableElements />
+            <TableElements message="test text" />
         </div>
     )
 }
