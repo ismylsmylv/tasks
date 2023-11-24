@@ -1,33 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Table } from 'antd';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [dataApi, setdataApi] = useState([]);
+  const [names, setnames] = useState([]);
+  useEffect(() => {
+    axios("https://northwind.vercel.app/api/suppliers/").then(res => {
+      console.log(res.data)
+      setdataApi(res.data)
+    })
+  }, []);
+  console.log(names)
 
+
+  // table head starts here
+  const columns = [
+    {
+      title: 'ID',
+      dataIndex: 'id',
+      sorter: (a, b) => a.id - b.id,
+    },
+    {
+      title: 'Name',
+      dataIndex: 'companyName',
+      sorter: (a, b) => a.companyName.localeCompare(b?.companyName),
+      // sorter: (a, b) => a.name.length - b.name.length,
+    }, {
+      title: 'City',
+      dataIndex: ['address', 'city'],
+      filters: [{
+        text: 'Tokyo',
+        value: 'Tokyo',
+      }, {
+        text: 'Berlin',
+        value: 'Berlin',
+      },
+      {
+        text: 'Manchester',
+        value: 'Manchester',
+      }],
+      filterMultiple: false,
+      onFilter: (value, record) => record.address?.city?.startsWith(value)
+      // sorter: dataApi.filter(elem=>{
+      //   elem.address?.city ==a.address.city
+      // })
+      // sorter: (a, b) => a.address?.city.localeCompare(b.address?.city),
+      // sorter: (a, b) => a['address', 'city'].localeCompare(b['address', 'city']),
+      // sorter: (a, b) => a.address?.length - b.address?.length,
+    }];
+
+
+
+  // table body starts here
+
+  function onChange(pagination, filters, sorter) {
+    console.log('params', pagination, filters, sorter);
+  }
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+
+      <Table columns={columns} dataSource={dataApi} onChange={onChange} />
+
+
     </>
   )
 }
