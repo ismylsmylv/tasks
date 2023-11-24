@@ -5,7 +5,7 @@ function Adder(state, action) {
       return [...state, action.value]
     case "delete":
       return []
-
+      
     default:
       break;
   }
