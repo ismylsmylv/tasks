@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card {
+  margin: 20px;
+}
+
+form {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+input {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+h2 {
+  margin-bottom: 5px;
+}
