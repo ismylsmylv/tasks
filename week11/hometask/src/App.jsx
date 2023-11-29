@@ -1,20 +1,18 @@
-import './App.css'
-import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
-import Home from './pages/Home';
-import Table from './pages/Table';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Navbar from './components/Navbar';
-import Nopage from './pages/Nopage';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import './App.css';
 import Add from './pages/Add';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Nopage from './pages/Nopage';
+import Signup from './pages/Signup';
+import Table from './pages/Table';
 function App() {
 
   return (
     <>
       <p>navigations</p>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
-
           <Route path='/' index element={<Home />} />
           <Route path='/table'>
             <Route index element={<Table />} />
@@ -24,11 +22,7 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='*' element={<Nopage />} />
         </Routes>
-
-
-
-      </BrowserRouter>
-
+      </BrowserRouter> */}
     </>
   )
 }
