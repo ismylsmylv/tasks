@@ -13,6 +13,7 @@ export const todoSlice = createSlice({
                 title: action.payload
             }
             state.todos.push(obj)
+
         }
     }
 })
