@@ -3,7 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 const initialState = {
     pizza: [],
     glutenFree: false,
-    ings: ["pepperoni", "anchovies", "olives"]
+    ings: ["pepperoni", "anchovies", "olives", "aaa"],
+
 }
 export const pizzaSlice = createSlice({
     name: "pepp",
@@ -17,9 +18,9 @@ export const pizzaSlice = createSlice({
 
         //     console.log(state.pizza)
         // },
-        // gluten: (state) => {
-        //     return { ...state, glutenFree: !state.glutenFree }
-        // },
+        gluten: (state) => {
+            return { ...state, glutenFree: !state.glutenFree }
+        },
         add: (state, action) => {
             if (state.ings.find(elem =>
                 elem.toLowerCase().trim() == action.payload.toLowerCase().trim()
@@ -46,9 +47,23 @@ export const pizzaSlice = createSlice({
         },
         remover: (state, action) => {
             state.pizza = state.pizza.filter((elem) => elem.id != action.payload)
+        },
+
+
+        cook: (state) => {
+            console.log(state.pizza)
+            let cooked = {
+                // toppings: JSON.stringify(state.pizza),
+                toppings: (state.pizza[0].title),
+                gluten: state.glutenFree
+            }
+            console.log(cooked)
+            state.pizza = []
+            state.glutenFree = false
+
         }
     }
 
 })
-export const { addTopping, gluten, add, remover } = pizzaSlice.actions
+export const { addTopping, gluten, add, remover, cook, cooked } = pizzaSlice.actions
 export default pizzaSlice.reducer

@@ -1,9 +1,7 @@
-import './App.css'
-import { useDispatch, useSelector } from "react-redux";
-import { pizzaSlice } from './redux/slices/pizzaSlice';
-import { addTopping, gluten, add, remover } from './redux/slices/pizzaSlice';
 import { useRef } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { useDispatch, useSelector } from "react-redux";
+import './App.css';
+import { add, remover, gluten, cook, cooked } from './redux/slices/pizzaSlice';
 function App() {
   const pizza = useSelector(state => state.pepp.pizza)
   const glutenFree = useSelector(state => state.pepp.glutenFree)
@@ -14,7 +12,7 @@ function App() {
       <h1>Pizza</h1>
 
       <input type="text" ref={inputText} onChange={(e) => {
-        console.log(e.target.value)
+        // console.log(e.target.value)
 
       }} />
       <ul>
@@ -27,7 +25,7 @@ function App() {
           })
         }
       </ul>
-      {/* <p>Gluten Free: {glutenFree ? "true" : "false"}</p> */}
+      <p>Gluten Free: {glutenFree ? "true" : "false"}</p>
       {/* <button onClick={() => {
         console.log(pizza)
         dispatch(addTopping("pepperoni"))
@@ -39,18 +37,26 @@ function App() {
       <button onClick={() => {
         console.log(pizza)
         dispatch(addTopping("olives"))
-      }}>Add olives</button>
+      }}>Add olives</button> */}
       <button onClick={() => {
         dispatch(gluten())
-      }}>Gluten free</button> */}
+      }}>Gluten free</button>
       <button onClick={() => {
         console.log(
           inputText.current.value
         )
-
         dispatch(add(inputText.current.value))
         inputText.current.value = ""
       }}>Add</button>
+      <br />
+      <button onClick={() => {
+        dispatch(cook())
+      }}>Cook</button>
+      <br />
+
+
+
+
     </>
   )
 }
