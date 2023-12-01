@@ -8,16 +8,20 @@ export const todoSlice = createSlice({
     name: "todo",
     initialState,
     reducers: {
-        setTodo: (state, value) => {
-            state.temp = value.payload
+        setTodo: (state, action) => {
+            state.temp = action.payload
             console.log(state.temp)
         },
-        addTodo: (state, value) => {
+        addTodo: (state, action) => {
             console.log("addtodo")
             state.todos.push(state.temp)
+
+        },
+        deleteTodo: (state, action) => {
+            state.todos = state.todos.filter(elem => elem != action.payload)
         }
     }
 })
 
-export const { addTodo, setTodo, todos } = todoSlice.actions
+export const { addTodo, setTodo, todos, deleteTodo } = todoSlice.actions
 export default todoSlice.reducer

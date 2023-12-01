@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { useDispatch, useSelector } from "react-redux"
-import { addTodo, setTodo, todos } from './redux/counterSlice'
+import { addTodo, setTodo, todos, deleteTodo } from './redux/counterSlice'
 function App() {
   const todos = useSelector(state => state.todo.todos)
   const dispatch = useDispatch()
@@ -17,7 +17,11 @@ function App() {
 
       <ul>
         {todos.map((elem, i) => {
-          return <li key={i}>{elem}</li>
+          return <li key={i}>{elem}
+            <button onClick={() => {
+              dispatch(deleteTodo(elem))
+            }}>Delete</button>
+          </li>
         })}
       </ul>
     </>
