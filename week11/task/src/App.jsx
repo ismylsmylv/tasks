@@ -1,12 +1,13 @@
-import { useRef } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useRef, useState } from 'react';
+import { useDispatch, useSelector, } from "react-redux";
 import './App.css';
-import { add, remover, gluten, cook, cooked } from './redux/slices/pizzaSlice';
+import { add, remover, gluten, cook, cooked, getAll, getAllData } from './redux/slices/pizzaSlice';
 function App() {
   const pizza = useSelector(state => state.pepp.pizza)
   const glutenFree = useSelector(state => state.pepp.glutenFree)
   const dispatch = useDispatch()
   const inputText = useRef()
+  const [data, setdata] = useState([]);
   return (
     <>
       <h1>Pizza</h1>
@@ -53,6 +54,23 @@ function App() {
         dispatch(cook())
       }}>Cook</button>
       <br />
+      <hr />
+
+
+      {/* async */}
+      <button onClick={() => {
+        dispatch(getAll())
+      }}>get all</button>
+      <ul>
+        {
+          getAllData.map((elem, i) => {
+            return <li key={i}>{elem.name}</li>
+          })
+
+        }
+
+      </ul>
+
 
 
 

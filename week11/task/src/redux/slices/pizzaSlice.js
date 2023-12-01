@@ -1,11 +1,25 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 import { v4 as uuidv4 } from 'uuid';
 const initialState = {
     pizza: [],
     glutenFree: false,
     ings: ["pepperoni", "anchovies", "olives", "aaa"],
+    products: []
 
 }
+
+export const getAll = createAsyncThunk(
+    "getAll",
+    async () => {
+        const response = await axios("https://northwind.vercel.app/api/products")
+        return response.data
+        // console.log(response.data)
+    }
+)
+
+
+
 export const pizzaSlice = createSlice({
     name: "pepp",
     initialState,
@@ -61,9 +75,14 @@ export const pizzaSlice = createSlice({
             state.pizza = []
             state.glutenFree = false
 
+        },
+
+
+        getAllData: (state, action) => {
+            state.products = action.payload
         }
     }
 
 })
-export const { addTopping, gluten, add, remover, cook, cooked } = pizzaSlice.actions
+export const { addTopping, gluten, add, remover, cook, cooked, getAllData } = pizzaSlice.actions
 export default pizzaSlice.reducer
