@@ -1,0 +1,23 @@
+.blogs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+    h3 {
+        margin: 50px;
+        font-size: 30px;
+    }
+
+    .blogList {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .card {
+            margin: 0 10px;
+            margin-bottom: 10px;
+        }
+    }
+}
