@@ -24,13 +24,13 @@ export const blogsList = createSlice({
     extraReducers: (builder) => {
         builder.addCase(getBlogs.pending, (state, action) => {
             state.loading = true
-            console.log(state.blogs)
+            // console.log(state.blogs)
 
         })
         builder.addCase(getBlogs.fulfilled, (state, action) => {
             state.loading = false
             state.blogs = action.payload
-            console.log(state.blogs)
+            // console.log(state.blogs)
 
         })
         builder.addCase(getBlogs.rejected, (state, action) => {
