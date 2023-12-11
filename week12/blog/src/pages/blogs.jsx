@@ -26,9 +26,9 @@ function Blogs() {
     const [searchData, setsearchData] = useState([]);
     const [editElem, seteditElem] = useState([]);
     useEffect(() => {
-        dispatch(getBlogs())
-        setdatas(blogs)
-    }, []);
+        dispatch(getBlogs());
+        setdatas(blogs);
+    }, [dispatch]);
     console.log(blogs)
     blogs && (blogs.map(elem => {
         sortBlogs.push(elem)
@@ -39,9 +39,6 @@ function Blogs() {
         <>
             <Navbar />
             <div className="blogs">
-
-
-
                 <div className="searchBar">
                     <input type="text" placeholder='Search by name' onChange={(e) => {
                         setsearchInp(e.target.value)
@@ -56,8 +53,6 @@ function Blogs() {
 
 
                 </div>
-
-
                 {/* sorting */}
                 <button onClick={() => {
                     console.log("sort")
@@ -74,8 +69,6 @@ function Blogs() {
                     console.log(sortBlogs)
 
                 }}>Sort by name</button>
-
-
                 <h3>Blogs</h3>
                 {
                     edit && (
@@ -117,47 +110,44 @@ function Blogs() {
                     )
                 }
 
-
-
-
                 <div className="blogList">
-
                     {
+                        datas.length > 0 && (
+                            datas.map((elem) => {
+                                return <Card sx={{ width: 275 }} key={elem.id} className='card'>
+                                    <CardContent>
+                                        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                                            {elem.id}
+                                        </Typography>
+                                        <Typography variant="h5" component="div">
+                                            {elem.name}
+                                        </Typography>
+                                        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                                            {elem.text}
+                                        </Typography>
 
-                        datas.map((elem) => {
-                            return <Card sx={{ width: 275 }} key={elem.id} className='card'>
-                                <CardContent>
-                                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                                        {elem.id}
-                                    </Typography>
-                                    <Typography variant="h5" component="div">
-                                        {elem.name}
-                                    </Typography>
-                                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                                        {elem.text}
-                                    </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button data-id={elem.id} size="small" onClick={(e) => {
+                                            dispatch(deleteBlog(e.target.getAttribute("data-id")))
+                                            sortBlogs = datas.filter(element => {
+                                                element.id != elem.id
+                                            })
+                                            setdatas(datas.filter(element => element.id !== editId))
 
-                                </CardContent>
-                                <CardActions>
-                                    <Button data-id={elem.id} size="small" onClick={(e) => {
-                                        dispatch(deleteBlog(e.target.getAttribute("data-id")))
-                                        sortBlogs = datas.filter(element => {
-                                            element.id != elem.id
-                                        })
-                                        setdatas(datas.filter(element => element.id !== editId))
+                                        }}>Delete</Button>
+                                        <Button data-id={elem.id} size="small" onClick={(e) => {
+                                            seteditId(e.target.getAttribute("data-id"))
+                                            setedit(true)
+                                            console.log(editId)
+                                            seteditName(elem.name)
+                                            seteditText(elem.text)
 
-                                    }}>Delete</Button>
-                                    <Button data-id={elem.id} size="small" onClick={(e) => {
-                                        seteditId(e.target.getAttribute("data-id"))
-                                        setedit(true)
-                                        console.log(editId)
-                                        seteditName(elem.name)
-                                        seteditText(elem.text)
-
-                                    }}>Edit</Button>
-                                </CardActions>
-                            </Card>
-                        })
+                                        }}>Edit</Button>
+                                    </CardActions>
+                                </Card>
+                            })
+                        )
                     }
                 </div>
             </div>
