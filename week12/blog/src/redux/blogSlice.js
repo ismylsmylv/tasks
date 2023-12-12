@@ -9,6 +9,7 @@ export const getBlogs = createAsyncThunk("getBlogs", async () => {
 
 const initialState = {
     blogs: [],
+    backBlogs: [],
     loading: false,
     error: ""
 }
@@ -31,8 +32,21 @@ export const blogsList = createSlice({
                 }
                 return 0
             })
+        },
+        searchBlog: (state, action) => {
+            // console.log("search")
+            if (action.payload != "") {
+                state.blogs = state.blogs.filter(elem => elem.name.includes(action.payload))
+            }
+            else {
+                state.blogs = state.backBlogs
+            }
         }
     },
+
+
+
+
     extraReducers: (builder) => {
         builder.addCase(getBlogs.pending, (state, action) => {
             state.loading = true
@@ -42,6 +56,7 @@ export const blogsList = createSlice({
         builder.addCase(getBlogs.fulfilled, (state, action) => {
             state.loading = false
             state.blogs = action.payload
+            state.backBlogs = action.payload
             // console.log(state.blogs)
 
         })
@@ -52,5 +67,5 @@ export const blogsList = createSlice({
     }
 })
 
-export const { updateBlog, sortBlog, blogs } = blogsList.actions
+export const { updateBlog, sortBlog, blogs, searchBlog } = blogsList.actions
 export default blogsList.reducer

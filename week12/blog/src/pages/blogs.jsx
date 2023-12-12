@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import Navbar from '../components/Navbar';
 import "../style/blogs.scss"
 // import { getBlogs } from '../redux/adderSlice';
-import { updateBlog, blogs, getBlogs, sortBlog } from '../redux/blogSlice';
+import { updateBlog, blogs, getBlogs, sortBlog, searchBlog } from '../redux/blogSlice';
 import { deleteBlog, editBlog, editNameR, editTextR, search } from '../redux/adderSlice';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -47,7 +47,8 @@ function Blogs() {
                         setsearchInp(e.target.value)
                     }} />
                     <button onClick={() => {
-                        setdatas(datas.filter(elem => elem.name.includes(searchInp)))
+                        // setdatas(datas.filter(elem => elem.name.includes(searchInp)))
+                        dispatch(searchBlog(searchInp))
                     }}>Search</button>
                 </div>
                 {/* sorting */}
