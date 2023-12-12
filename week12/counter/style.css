@@ -1,0 +1,15 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+button {
+  border: 1px solid blue;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: white;
+  background-color: blue;
+}
