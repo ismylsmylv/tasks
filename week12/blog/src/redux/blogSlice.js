@@ -19,6 +19,18 @@ export const blogsList = createSlice({
     reducers: {
         updateBlog: (state, action) => {
             state.blogs.push(action.payload)
+        },
+        sortBlog: (state, action) => {
+            console.log("sort")
+            state.blogs = state.blogs.sort(function (a, b) {
+                if (a.name < b.name) {
+                    return -1
+                }
+                if (a.name > b.name) {
+                    return 1
+                }
+                return 0
+            })
         }
     },
     extraReducers: (builder) => {
@@ -40,5 +52,5 @@ export const blogsList = createSlice({
     }
 })
 
-export const { updateBlog, blogs } = blogsList.actions
+export const { updateBlog, sortBlog, blogs } = blogsList.actions
 export default blogsList.reducer

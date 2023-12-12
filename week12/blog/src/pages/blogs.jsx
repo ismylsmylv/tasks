@@ -9,12 +9,12 @@ import Typography from '@mui/material/Typography';
 import Navbar from '../components/Navbar';
 import "../style/blogs.scss"
 // import { getBlogs } from '../redux/adderSlice';
-import { updateBlog, blogs, getBlogs } from '../redux/blogSlice';
+import { updateBlog, blogs, getBlogs, sortBlog } from '../redux/blogSlice';
 import { deleteBlog, editBlog, editNameR, editTextR, search } from '../redux/adderSlice';
 
 import { useDispatch, useSelector } from 'react-redux';
 function Blogs() {
-    const blogs = useSelector((state) => state.blog.blogs)
+    let blogs = useSelector((state) => state.blog.blogs)
     let sortBlogs = []
     const dispatch = useDispatch()
     const [edit, setedit] = useState(false);
@@ -28,8 +28,10 @@ function Blogs() {
     useEffect(() => {
         dispatch(getBlogs());
         setdatas(blogs);
-    }, [dispatch]);
-    console.log(blogs)
+        console.log("datas", datas)
+        console.log("blogs", blogs)
+    }, []);
+    // console.log(blogs)
     blogs && (blogs.map(elem => {
         sortBlogs.push(elem)
         searchData.push(elem)
@@ -39,34 +41,31 @@ function Blogs() {
         <>
             <Navbar />
             <div className="blogs">
+                {/* search */}
                 <div className="searchBar">
                     <input type="text" placeholder='Search by name' onChange={(e) => {
                         setsearchInp(e.target.value)
                     }} />
                     <button onClick={() => {
-                        const filteredData = datas.filter(elem => elem.name === searchInp);
-                        setsearchData(filteredData);
-                        console.log(filteredData);
+                        setdatas(datas.filter(elem => elem.name.includes(searchInp)))
                     }}>Search</button>
-
-
-
-
                 </div>
                 {/* sorting */}
                 <button onClick={() => {
-                    console.log("sort")
-                    sortBlogs = sortBlogs.sort(function (a, b) {
-                        if (a.name < b.name) {
-                            return -1;
-                        }
-                        if (a.name > b.name) {
-                            return 1;
-                        }
-                        return 0;
-                    });
-                    setdatas(sortBlogs)
-                    console.log(sortBlogs)
+                    // console.log("sort")
+                    dispatch(sortBlog())
+                    // sortBlogs = sortBlogs.sort(function (a, b) {
+                    //     if (a.name < b.name) {
+                    //         return -1;
+                    //     }
+                    //     if (a.name > b.name) {
+                    //         return 1;
+                    //     }
+                    //     return 0;
+                    // });
+                    // setdatas(sortBlogs)
+
+                    // console.log(sortBlogs)
 
                 }}>Sort by name</button>
                 <h3>Blogs</h3>
@@ -112,8 +111,8 @@ function Blogs() {
 
                 <div className="blogList">
                     {
-                        datas.length > 0 && (
-                            datas.map((elem) => {
+                        blogs && (
+                            blogs.map((elem) => {
                                 return <Card sx={{ width: 275 }} key={elem.id} className='card'>
                                     <CardContent>
                                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
