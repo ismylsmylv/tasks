@@ -44,20 +44,30 @@ function getArea(side) {
     return side * side;
 }
 var Circle = /** @class */ (function () {
-    function Circle(name) {
-        this.name = name;
+    function Circle(radius) {
+        this.kind = ShapeKind.Circle;
+        this.radius = radius;
     }
+    Circle.prototype.getArea = function (param) {
+        if (this.radius != undefined) {
+            return Math.PI * this.radius * this.radius;
+        }
+    };
     return Circle;
 }());
-var Dog = /** @class */ (function () {
-    function Dog(name) {
-        this.name = name;
+var Square = /** @class */ (function () {
+    function Square(sideLength) {
+        this.kind = ShapeKind.Circle;
+        this.sideLength = sideLength;
     }
-    Dog.prototype.eat = function () {
-        console.log("The dog is eating.");
+    Square.prototype.getArea = function (param) {
+        if (this.sideLength != undefined) {
+            return this.sideLength * this.sideLength;
+        }
     };
-    return Dog;
+    return Square;
 }());
-var dog = new Dog("Fluffy");
-// "The dog is eating."
-dog.eat();
+var circle = new Circle(5);
+console.log(circle.getArea(0));
+var square = new Square(10);
+console.log(square.getArea(0));

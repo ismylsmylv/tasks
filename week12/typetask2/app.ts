@@ -51,7 +51,7 @@ interface Shape {
   kind: ShapeKind;
   radius?: number;
   sideLength?: number;
-  getArea: Function;
+  getArea: (param: number) => number;
 }
 
 function getArea(side: number): number {
@@ -59,25 +59,33 @@ function getArea(side: number): number {
 }
 
 class Circle implements Shape {
-  public constructor(public name: string) {}
+  public kind: ShapeKind = ShapeKind.Circle;
   public radius?: number | undefined;
-}
-
-//copy
-interface IAnimal {
-  name: string;
-  eat: () => void;
-}
-
-class Dog implements IAnimal {
-  public constructor(public name: string) {}
-
-  public eat() {
-    console.log("The dog is eating.");
+  public constructor(radius?: number) {
+    this.radius = radius;
+  }
+  public getArea(param: number): number {
+    if (this.radius != undefined) {
+      return Math.PI * this.radius * this.radius;
+    }
   }
 }
 
-const dog = new Dog("Fluffy");
+class Square implements Shape {
+  public kind: ShapeKind = ShapeKind.Circle;
+  public sideLength?: number | undefined;
+  public constructor(sideLength?: number) {
+    this.sideLength = sideLength;
+  }
+  public getArea(param: number): number {
+    if (this.sideLength != undefined) {
+      return this.sideLength * this.sideLength;
+    }
+  }
+}
 
-// "The dog is eating."
-dog.eat();
+const circle = new Circle(5);
+console.log(circle.getArea(0));
+
+const square = new Square(10);
+console.log(square.getArea(0));
