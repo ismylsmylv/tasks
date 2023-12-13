@@ -92,3 +92,11 @@ var data2 = new Increaser("dassaddaadas", 3);
 console.log(Increaser.classCount);
 var data3 = new Increaser("asdkal;kds", 54);
 console.log(Increaser.classCount);
+function getFullName(person) {
+    return "".concat(person.firstName, ", ").concat(person.lastName);
+}
+var adam = {
+    firstName: "asddsa",
+    lastName: "sdsdsdsdsddss",
+};
+console.log(getFullName(adam));

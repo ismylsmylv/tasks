@@ -88,3 +88,18 @@ const data2 = new Increaser("dassaddaadas", 3);
 console.log(Increaser.classCount);
 const data3 = new Increaser("asdkal;kds", 54);
 console.log(Increaser.classCount);
+
+//interface
+interface IPerson {
+  first: string;
+  last: string;
+}
+
+function getFullName(person: IPerson): string {
+  return `${person.firstName}, ${person.lastName}`;
+}
+const adam = {
+  firstName: "asddsa",
+  lastName: "sdsdsdsdsddss",
+};
+console.log(getFullName(adam));
