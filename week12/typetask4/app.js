@@ -67,29 +67,16 @@ var Student = /** @class */ (function (_super) {
     __extends(Student, _super);
     function Student(name, surname, age, groupName, hobbies, GPA) {
         var _this = _super.call(this, name, surname, age) || this;
-        _this._GPA = GPA;
+        if (GPA >= 0 && GPA <= 100) {
+            _this._GPA = GPA;
+        }
+        else {
+            _this._GPA = 0;
+        }
         _this.groupName = groupName;
         _this.hobbies = hobbies;
         return _this;
     }
-    Object.defineProperty(Student.prototype, "checkGPA", {
-        get: function () {
-            return this._GPA;
-        },
-        set: function (checkedGPA) {
-            if (checkedGPA > 0 && checkedGPA < 100) {
-                this._GPA = checkedGPA;
-                console.log(checkedGPA);
-            }
-            else {
-                // console.log("checkedGPAaaa");
-                // throw new Error("GPA should be in range of (1, 100)");
-                this._GPA = 0;
-            }
-        },
-        enumerable: false,
-        configurable: true
-    });
     Student.prototype.hasPassed = function () {
         if (this._GPA < 51) {
             return false;
@@ -100,7 +87,87 @@ var Student = /** @class */ (function (_super) {
     };
     return Student;
 }(Human));
-var stud1 = new Student("aaaaa", "AAaaa", 23, "dsf", ["asdasdasd"], 2115);
+var stud1 = new Student("Ismayil", "Ismayilov", 20, "dsf", ["asdasdasd"], 70);
 var work1 = new Employee("emp", "loyee", 23, 3333, ["none"], Position.ceo);
 console.log(stud1);
 console.log(stud1.hasPassed());
+var body = document.querySelector("body");
+var selector = document.getElementById("selector");
+var additions = document.querySelector(".additions");
+console.log(selector.value);
+selector.addEventListener("change", function () {
+    if (selector.value == "student") {
+        additions.innerHTML = "\n<input type=\"text\" name=\"\" id=\"groupName\" placeholder=\"groupName\">\n<input type=\"number\" name=\"\" id=\"GPA\" placeholder=\"GPA\">\n<input type=\"text\" name=\"\" id=\"hobbies\" placeholder=\"hobbies\">\n";
+    }
+    else if (selector.value == "employee") {
+        additions.innerHTML = "\n    <input type=\"number\" name=\"\" id=\"salary\" placeholder=\"salary\">\n    <input type=\"text\" name=\"\" id=\"skills\" placeholder=\"skills\">\n    <input type=\"text\" name=\"\" id=\"position\" placeholder=\"position\">\n    ";
+    }
+});
+var nameInp = document.querySelector("#nameInp");
+var surname = document.querySelector("#surname");
+var age = document.querySelector("#age");
+var groupName = document.querySelector("#groupName");
+var GPA = document.querySelector("#GPA");
+var hobbies = document.querySelector("#hobbies");
+var salary = document.querySelector("#salary");
+var skills = document.querySelector("#skills");
+var position = document.querySelector("#position");
+var addedName;
+var addedSurname;
+var addedAge;
+var addedGroupName;
+var addedGPA;
+var addedHobbies;
+var addedSalary;
+var addedSkills;
+var addedPosition;
+nameInp === null || nameInp === void 0 ? void 0 : nameInp.addEventListener("change", function () {
+    console.log(nameInp === null || nameInp === void 0 ? void 0 : nameInp.value);
+    addedName = nameInp === null || nameInp === void 0 ? void 0 : nameInp.value;
+});
+surname === null || surname === void 0 ? void 0 : surname.addEventListener("change", function () {
+    console.log(surname === null || surname === void 0 ? void 0 : surname.value);
+    addedSurname = surname === null || surname === void 0 ? void 0 : surname.value;
+});
+age === null || age === void 0 ? void 0 : age.addEventListener("change", function () {
+    console.log(age === null || age === void 0 ? void 0 : age.value);
+    addedAge = age === null || age === void 0 ? void 0 : age.value;
+});
+groupName === null || groupName === void 0 ? void 0 : groupName.addEventListener("change", function () {
+    console.log(age === null || age === void 0 ? void 0 : age.value);
+    addedGroupName = groupName === null || groupName === void 0 ? void 0 : groupName.value;
+});
+GPA === null || GPA === void 0 ? void 0 : GPA.addEventListener("change", function () {
+    console.log(age === null || age === void 0 ? void 0 : age.value);
+    addedGPA = GPA === null || GPA === void 0 ? void 0 : GPA.value;
+});
+hobbies === null || hobbies === void 0 ? void 0 : hobbies.addEventListener("change", function () {
+    console.log(age === null || age === void 0 ? void 0 : age.value);
+    addedHobbies = hobbies === null || hobbies === void 0 ? void 0 : hobbies.value;
+});
+salary === null || salary === void 0 ? void 0 : salary.addEventListener("change", function () {
+    console.log(age === null || age === void 0 ? void 0 : age.value);
+    addedSalary = salary === null || salary === void 0 ? void 0 : salary.value;
+});
+skills === null || skills === void 0 ? void 0 : skills.addEventListener("change", function () {
+    console.log(age === null || age === void 0 ? void 0 : age.value);
+    addedSkills = nameInp === null || nameInp === void 0 ? void 0 : nameInp.value;
+});
+position === null || position === void 0 ? void 0 : position.addEventListener("change", function () {
+    console.log(age === null || age === void 0 ? void 0 : age.value);
+    addedPosition = nameInp === null || nameInp === void 0 ? void 0 : nameInp.value;
+});
+var submit = document.querySelector(".submit");
+submit.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (selector.value == "student") {
+        var student = new Student(addedName, addedSurname, addedAge, addedGroupName, addedHobbies, addedGPA);
+        console.log(student);
+        body === null || body === void 0 ? void 0 : body.innerHTML += "".concat(addedName, " ").concat(addedSurname, " ").concat(addedAge, " ").concat(addedGroupName, " ").concat(addedHobbies, " ").concat(addedGPA);
+    }
+    else {
+        var employee = new Employee(addedName, addedSurname, addedAge, addedSalary, addedSkills, addedPosition);
+        console.log(employee);
+        body === null || body === void 0 ? void 0 : body.innerHTML += "".concat(addedName, " ").concat(addedSurname, " ").concat(addedAge, " ").concat(addedGroupName, " ").concat(addedHobbies, " ").concat(addedGPA);
+    }
+});
