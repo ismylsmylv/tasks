@@ -94,14 +94,23 @@ console.log(stud1.hasPassed());
 var body = document.querySelector("body");
 var selector = document.getElementById("selector");
 var additions = document.querySelector(".additions");
+var studentOpt = document.querySelector(".studentOpt");
+var employeeOpt = document.querySelector(".employeeOpt");
 console.log(selector.value);
 selector.addEventListener("change", function () {
     if (selector.value == "student") {
-        additions.innerHTML = "\n<input type=\"text\" name=\"\" id=\"groupName\" placeholder=\"groupName\">\n<input type=\"number\" name=\"\" id=\"GPA\" placeholder=\"GPA\">\n<input type=\"text\" name=\"\" id=\"hobbies\" placeholder=\"hobbies\">\n";
+        employeeOpt.style.display = "none";
+        studentOpt.style.display = "block";
     }
     else if (selector.value == "employee") {
-        additions.innerHTML = "\n    <input type=\"number\" name=\"\" id=\"salary\" placeholder=\"salary\">\n    <input type=\"text\" name=\"\" id=\"skills\" placeholder=\"skills\">\n    <input type=\"text\" name=\"\" id=\"position\" placeholder=\"position\">\n    ";
+        studentOpt.style.display = "none";
+        employeeOpt.style.display = "block";
     }
+    //  else {
+    //   additions.style.display = "none";
+    //   employeeOpt.style.display = "none";
+    //   studentOpt.style.display = "none";
+    // }
 });
 var nameInp = document.querySelector("#nameInp");
 var surname = document.querySelector("#surname");
@@ -134,40 +143,41 @@ age === null || age === void 0 ? void 0 : age.addEventListener("change", functio
     addedAge = age === null || age === void 0 ? void 0 : age.value;
 });
 groupName === null || groupName === void 0 ? void 0 : groupName.addEventListener("change", function () {
-    console.log(age === null || age === void 0 ? void 0 : age.value);
+    console.log(groupName === null || groupName === void 0 ? void 0 : groupName.value);
     addedGroupName = groupName === null || groupName === void 0 ? void 0 : groupName.value;
 });
 GPA === null || GPA === void 0 ? void 0 : GPA.addEventListener("change", function () {
-    console.log(age === null || age === void 0 ? void 0 : age.value);
+    console.log(GPA === null || GPA === void 0 ? void 0 : GPA.value);
     addedGPA = GPA === null || GPA === void 0 ? void 0 : GPA.value;
 });
 hobbies === null || hobbies === void 0 ? void 0 : hobbies.addEventListener("change", function () {
-    console.log(age === null || age === void 0 ? void 0 : age.value);
+    console.log(hobbies === null || hobbies === void 0 ? void 0 : hobbies.value);
     addedHobbies = hobbies === null || hobbies === void 0 ? void 0 : hobbies.value;
 });
 salary === null || salary === void 0 ? void 0 : salary.addEventListener("change", function () {
-    console.log(age === null || age === void 0 ? void 0 : age.value);
+    console.log(salary === null || salary === void 0 ? void 0 : salary.value);
     addedSalary = salary === null || salary === void 0 ? void 0 : salary.value;
 });
 skills === null || skills === void 0 ? void 0 : skills.addEventListener("change", function () {
-    console.log(age === null || age === void 0 ? void 0 : age.value);
-    addedSkills = nameInp === null || nameInp === void 0 ? void 0 : nameInp.value;
+    console.log(skills === null || skills === void 0 ? void 0 : skills.value);
+    addedSkills = skills === null || skills === void 0 ? void 0 : skills.value;
 });
 position === null || position === void 0 ? void 0 : position.addEventListener("change", function () {
-    console.log(age === null || age === void 0 ? void 0 : age.value);
-    addedPosition = nameInp === null || nameInp === void 0 ? void 0 : nameInp.value;
+    console.log(position === null || position === void 0 ? void 0 : position.value);
+    addedPosition = position === null || position === void 0 ? void 0 : position.value;
 });
+var list = document.querySelector(".list");
 var submit = document.querySelector(".submit");
 submit.addEventListener("submit", function (e) {
     e.preventDefault();
     if (selector.value == "student") {
         var student = new Student(addedName, addedSurname, addedAge, addedGroupName, addedHobbies, addedGPA);
         console.log(student);
-        body === null || body === void 0 ? void 0 : body.innerHTML += "".concat(addedName, " ").concat(addedSurname, " ").concat(addedAge, " ").concat(addedGroupName, " ").concat(addedHobbies, " ").concat(addedGPA);
+        list.innerHTML += "<li>".concat(addedName, " ").concat(addedSurname, " ").concat(addedAge, " ").concat(addedGroupName, " ").concat(addedHobbies, " ").concat(addedGPA, "</li>");
     }
     else {
         var employee = new Employee(addedName, addedSurname, addedAge, addedSalary, addedSkills, addedPosition);
         console.log(employee);
-        body === null || body === void 0 ? void 0 : body.innerHTML += "".concat(addedName, " ").concat(addedSurname, " ").concat(addedAge, " ").concat(addedGroupName, " ").concat(addedHobbies, " ").concat(addedGPA);
+        list.innerHTML += "<li>".concat(addedName, " ").concat(addedSurname, " ").concat(addedAge, " ").concat(addedSalary, " ").concat(addedSkills, " ").concat(addedPosition, "</li>");
     }
 });

@@ -107,22 +107,23 @@ console.log(stud1.hasPassed());
 let body = document.querySelector("body");
 let selector = document.getElementById("selector") as HTMLSelectElement;
 let additions = document.querySelector(".additions") as HTMLSelectElement;
+let studentOpt = document.querySelector(".studentOpt") as HTMLSelectElement;
+let employeeOpt = document.querySelector(".employeeOpt") as HTMLSelectElement;
 console.log(selector.value);
 
 selector.addEventListener("change", () => {
   if (selector.value == "student") {
-    additions.innerHTML = `
-<input type="text" name="" id="groupName" placeholder="groupName">
-<input type="number" name="" id="GPA" placeholder="GPA">
-<input type="text" name="" id="hobbies" placeholder="hobbies">
-`;
+    employeeOpt.style.display = "none";
+    studentOpt.style.display = "block";
   } else if (selector.value == "employee") {
-    additions.innerHTML = `
-    <input type="number" name="" id="salary" placeholder="salary">
-    <input type="text" name="" id="skills" placeholder="skills">
-    <input type="text" name="" id="position" placeholder="position">
-    `;
+    studentOpt.style.display = "none";
+    employeeOpt.style.display = "block";
   }
+  //  else {
+  //   additions.style.display = "none";
+  //   employeeOpt.style.display = "none";
+  //   studentOpt.style.display = "none";
+  // }
 });
 
 let nameInp = document.querySelector("#nameInp");
@@ -158,30 +159,32 @@ age?.addEventListener("change", () => {
   addedAge = (age as HTMLInputElement)?.value;
 });
 groupName?.addEventListener("change", () => {
-  console.log((age as HTMLInputElement)?.value);
+  console.log((groupName as HTMLInputElement)?.value);
   addedGroupName = (groupName as HTMLInputElement)?.value;
 });
 GPA?.addEventListener("change", () => {
-  console.log((age as HTMLInputElement)?.value);
+  console.log((GPA as HTMLInputElement)?.value);
   addedGPA = (GPA as HTMLInputElement)?.value;
 });
 hobbies?.addEventListener("change", () => {
-  console.log((age as HTMLInputElement)?.value);
+  console.log((hobbies as HTMLInputElement)?.value);
   addedHobbies = (hobbies as HTMLInputElement)?.value;
 });
 salary?.addEventListener("change", () => {
-  console.log((age as HTMLInputElement)?.value);
+  console.log((salary as HTMLInputElement)?.value);
   addedSalary = (salary as HTMLInputElement)?.value;
 });
 skills?.addEventListener("change", () => {
-  console.log((age as HTMLInputElement)?.value);
-  addedSkills = (nameInp as HTMLInputElement)?.value;
+  console.log((skills as HTMLInputElement)?.value);
+  addedSkills = (skills as HTMLInputElement)?.value;
 });
 
 position?.addEventListener("change", () => {
-  console.log((age as HTMLInputElement)?.value);
-  addedPosition = (nameInp as HTMLInputElement)?.value;
+  console.log((position as HTMLInputElement)?.value);
+  addedPosition = (position as HTMLInputElement)?.value;
 });
+
+let list = document.querySelector(".list")!;
 
 let submit = document.querySelector(".submit")!;
 submit.addEventListener("submit", (e) => {
@@ -196,7 +199,7 @@ submit.addEventListener("submit", (e) => {
       addedGPA
     );
     console.log(student);
-    body?.innerHTML += `${addedName} ${addedSurname} ${addedAge} ${addedGroupName} ${addedHobbies} ${addedGPA}`;
+    list.innerHTML += `<li>${addedName} ${addedSurname} ${addedAge} ${addedGroupName} ${addedHobbies} ${addedGPA}</li>`;
   } else {
     let employee = new Employee(
       addedName,
@@ -207,6 +210,6 @@ submit.addEventListener("submit", (e) => {
       addedPosition
     );
     console.log(employee);
-    body?.innerHTML += `${addedName} ${addedSurname} ${addedAge} ${addedGroupName} ${addedHobbies} ${addedGPA}`;
+    list.innerHTML += `<li>${addedName} ${addedSurname} ${addedAge} ${addedSalary} ${addedSkills} ${addedPosition}</li>`;
   }
 });
