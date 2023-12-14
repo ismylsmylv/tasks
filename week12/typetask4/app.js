@@ -140,7 +140,7 @@ surname === null || surname === void 0 ? void 0 : surname.addEventListener("chan
 });
 age === null || age === void 0 ? void 0 : age.addEventListener("change", function () {
     console.log(age === null || age === void 0 ? void 0 : age.value);
-    addedAge = age === null || age === void 0 ? void 0 : age.value;
+    addedAge = +(age === null || age === void 0 ? void 0 : age.value);
 });
 groupName === null || groupName === void 0 ? void 0 : groupName.addEventListener("change", function () {
     console.log(groupName === null || groupName === void 0 ? void 0 : groupName.value);
@@ -148,19 +148,19 @@ groupName === null || groupName === void 0 ? void 0 : groupName.addEventListener
 });
 GPA === null || GPA === void 0 ? void 0 : GPA.addEventListener("change", function () {
     console.log(GPA === null || GPA === void 0 ? void 0 : GPA.value);
-    addedGPA = GPA === null || GPA === void 0 ? void 0 : GPA.value;
+    addedGPA = +(GPA === null || GPA === void 0 ? void 0 : GPA.value);
 });
 hobbies === null || hobbies === void 0 ? void 0 : hobbies.addEventListener("change", function () {
     console.log(hobbies === null || hobbies === void 0 ? void 0 : hobbies.value);
-    addedHobbies = hobbies === null || hobbies === void 0 ? void 0 : hobbies.value;
+    addedHobbies = hobbies === null || hobbies === void 0 ? void 0 : hobbies.value.split(", ");
 });
 salary === null || salary === void 0 ? void 0 : salary.addEventListener("change", function () {
     console.log(salary === null || salary === void 0 ? void 0 : salary.value);
-    addedSalary = salary === null || salary === void 0 ? void 0 : salary.value;
+    addedSalary = +(salary === null || salary === void 0 ? void 0 : salary.value);
 });
 skills === null || skills === void 0 ? void 0 : skills.addEventListener("change", function () {
     console.log(skills === null || skills === void 0 ? void 0 : skills.value);
-    addedSkills = skills === null || skills === void 0 ? void 0 : skills.value;
+    addedSkills = skills === null || skills === void 0 ? void 0 : skills.value.split(",");
 });
 position === null || position === void 0 ? void 0 : position.addEventListener("change", function () {
     console.log(position === null || position === void 0 ? void 0 : position.value);

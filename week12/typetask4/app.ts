@@ -141,9 +141,9 @@ let addedSurname: string;
 let addedAge: number;
 let addedGroupName: string;
 let addedGPA: number;
-let addedHobbies: string;
+let addedHobbies: string[];
 let addedSalary: number;
-let addedSkills: string;
+let addedSkills: string[];
 let addedPosition: string;
 
 nameInp?.addEventListener("change", () => {
@@ -156,7 +156,7 @@ surname?.addEventListener("change", () => {
 });
 age?.addEventListener("change", () => {
   console.log((age as HTMLInputElement)?.value);
-  addedAge = (age as HTMLInputElement)?.value;
+  addedAge = +(age as HTMLInputElement)?.value;
 });
 groupName?.addEventListener("change", () => {
   console.log((groupName as HTMLInputElement)?.value);
@@ -164,19 +164,19 @@ groupName?.addEventListener("change", () => {
 });
 GPA?.addEventListener("change", () => {
   console.log((GPA as HTMLInputElement)?.value);
-  addedGPA = (GPA as HTMLInputElement)?.value;
+  addedGPA = +(GPA as HTMLInputElement)?.value;
 });
 hobbies?.addEventListener("change", () => {
   console.log((hobbies as HTMLInputElement)?.value);
-  addedHobbies = (hobbies as HTMLInputElement)?.value;
+  addedHobbies = (hobbies as HTMLInputElement)?.value.split(", ");
 });
 salary?.addEventListener("change", () => {
   console.log((salary as HTMLInputElement)?.value);
-  addedSalary = (salary as HTMLInputElement)?.value;
+  addedSalary = +(salary as HTMLInputElement)?.value;
 });
 skills?.addEventListener("change", () => {
   console.log((skills as HTMLInputElement)?.value);
-  addedSkills = (skills as HTMLInputElement)?.value;
+  addedSkills = (skills as HTMLInputElement)?.value.split(",");
 });
 
 position?.addEventListener("change", () => {
