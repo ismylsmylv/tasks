@@ -28,8 +28,11 @@ function App() {
         />
         <button
           onClick={() => {
-            dispatch(addTodo(todo));
-            setinput("");
+            if (todo.title !== "") {
+              //by Said
+              dispatch(addTodo(todo));
+              setinput("");
+            }
           }}
         >
           click
