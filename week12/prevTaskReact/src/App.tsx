@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import { Employee } from "./class/employee";
@@ -15,8 +15,17 @@ function App() {
   const [addedSalary, setaddedSalary] = useState(0);
   const [addedSkills, setaddedSkills] = useState<string[]>([]);
   // const [addedPosition, setaddedPosition] = useState("");
-  const [addedPosition, setaddedPosition] = useState("");
+  const [addedPosition, setaddedPosition] = useState(Position);
   const [datas, setdatas] = useState<string[]>([]);
+  const [disabled, setdisabled] = useState(true);
+  // useEffect(() => {
+  //   if (addedName == "") {
+  //     setdisabled(true);
+  //   } else {
+  //     setdisabled(false);
+  //   }
+  // }, []);
+
   return (
     <>
       <form action="">
@@ -27,6 +36,9 @@ function App() {
           placeholder="name"
           onChange={(e) => {
             setaddedName(e.target.value);
+            e.target.value.trim() == ""
+              ? setdisabled(true)
+              : setdisabled(false);
           }}
         />
         <input
@@ -36,6 +48,9 @@ function App() {
           placeholder="surname"
           onChange={(e) => {
             setaddedSurname(e.target.value);
+            e.target.value.trim() == ""
+              ? setdisabled(true)
+              : setdisabled(false);
           }}
         />
         <input
@@ -45,6 +60,9 @@ function App() {
           placeholder="age"
           onChange={(e) => {
             setaddedAge(+e.target.value);
+            e.target.value.trim() == ""
+              ? setdisabled(true)
+              : setdisabled(false);
           }}
         />
         <select
@@ -61,6 +79,7 @@ function App() {
         </select>
         <button
           type="submit"
+          disabled={disabled}
           onClick={(e) => {
             e.preventDefault();
             if (option == "student") {
@@ -86,7 +105,7 @@ function App() {
                 addedPosition
               );
               console.log(employee);
-              setdatas((datas: string) => [...datas, employee]);
+              setdatas((datas) => [...datas, employee]);
             }
           }}
         >
@@ -102,6 +121,9 @@ function App() {
                 placeholder="groupName"
                 onChange={(e) => {
                   setaddedGroupName(e.target.value);
+                  e.target.value.trim() == ""
+                    ? setdisabled(true)
+                    : setdisabled(false);
                 }}
               />
               <input
@@ -111,6 +133,9 @@ function App() {
                 placeholder="GPA"
                 onChange={(e) => {
                   setaddedGPA(+e.target.value);
+                  e.target.value.trim() == ""
+                    ? setdisabled(true)
+                    : setdisabled(false);
                 }}
               />
               <input
@@ -121,6 +146,9 @@ function App() {
                 onChange={(e) => {
                   const hobbyRaw = e.target.value;
                   setaddedHobbies(hobbyRaw.split(" "));
+                  e.target.value.trim() == ""
+                    ? setdisabled(true)
+                    : setdisabled(false);
                 }}
               />
             </div>
@@ -136,6 +164,9 @@ function App() {
                 placeholder="salary"
                 onChange={(e) => {
                   setaddedSalary(+e.target.value);
+                  e.target.value.trim() == ""
+                    ? setdisabled(true)
+                    : setdisabled(false);
                 }}
               />
               <input
@@ -146,6 +177,9 @@ function App() {
                 onChange={(e) => {
                   const skillRaw = e.target.value;
                   setaddedSkills(skillRaw.split(" "));
+                  e.target.value.trim() == ""
+                    ? setdisabled(true)
+                    : setdisabled(false);
                 }}
               />
               {/* <input
@@ -162,12 +196,16 @@ function App() {
                 id="position"
                 onChange={(e) => {
                   setaddedPosition(e.target.value);
+                  e.target.value.trim() == ""
+                    ? setdisabled(true)
+                    : setdisabled(false);
                 }}
               >
                 <option value="null">Select</option>
-                <option value="hr">hr</option>
-                <option value="finance">finance</option>
-                <option value="it">it</option>
+                <option value={Position.ceo}>{Position.ceo}</option>
+                <option value={Position.it}>{Position.it}</option>
+                <option value={Position.worker}>{Position.worker}</option>
+                <option value={Position.hr}>{Position.hr}</option>
               </select>
             </div>
           </>
@@ -176,14 +214,7 @@ function App() {
       <ul className="list">
         {datas &&
           datas.map((elem) => {
-            return (
-              <>
-                {/* <li key={uuidv4()}>
-                  {elem._name} {elem._surname} {elem.age}
-                </li> */}
-                <li key={uuidv4()}>{elem.getInfo()}</li>
-              </>
-            );
+            return <li key={uuidv4()}>{elem.getInfo()}</li>;
           })}
 
         {/* <li>text</li> */}
@@ -193,3 +224,8 @@ function App() {
 }
 
 export default App;
+{
+  /* <li key={uuidv4()}>
+                  {elem._name} {elem._surname} {elem.age}
+                </li> */
+}
