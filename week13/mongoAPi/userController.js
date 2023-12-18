@@ -5,5 +5,10 @@ const getAll = async (req, res) => {
     console.log(all)
     res.send(all)
 }
-
-module.exports = { getAll }
+const getId = async (req, res) => {
+    const id = req.params;
+    const elemById = User.filter((elem) => elem.id == id);
+    console.log(elemById)
+    res.send(elemById);
+}
+module.exports = { getAll, getId }
