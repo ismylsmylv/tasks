@@ -1,0 +1,7 @@
+npm init
+npm install
+npm i express
+npm i nodemon
+npm i body-parser
+package.jsonda sciptdə "start": "nodemon index.js"
+npx nodemon index.js || npm start
