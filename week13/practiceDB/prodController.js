@@ -8,4 +8,9 @@ const getAll = async (req, res) => {
 }
 
 
-module.exports = { getAll }
+const getID = async (req, res) => {
+    let filtered = await Products.findById(req.params.id)
+    res.send(filtered)
+}
+
+module.exports = { getAll, getID }
