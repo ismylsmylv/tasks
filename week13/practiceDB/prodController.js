@@ -13,4 +13,12 @@ const getID = async (req, res) => {
     res.send(filtered)
 }
 
-module.exports = { getAll, getID }
+const deleteProd = async (req, res) => {
+    await Products.findByIdAndDelete(req.params.id)
+    res.json({ message: "deleted" })
+}
+const postProd = async (req, res) => {
+    const elem = await Products.create(req.body)
+    res.json(elem)
+}
+module.exports = { getAll, getID, deleteProd, postProd }
