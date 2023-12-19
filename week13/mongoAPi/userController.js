@@ -5,10 +5,24 @@ const getAll = async (req, res) => {
     console.log(all)
     res.send(all)
 }
+
+
 const getId = async (req, res) => {
-    const id = req.params;
-    const elemById = User.filter((elem) => elem.id == id);
-    console.log(elemById)
-    res.send(elemById);
+
+    const item = await User.findById(req.params.id);
+    res.json(item);
+};
+
+const poster = async (req, res) => {
+    const elem = await User.create(req.body)
+    res.json(elem)
 }
-module.exports = { getAll, getId }
+
+
+const deleter = async (req, res) => {
+    await User.findByIdAndDelete(req.params.id);
+    res.json({ message: 'deleted' });
+}
+
+
+module.exports = { getAll, getId, poster, deleter }
