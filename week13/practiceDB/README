@@ -1,0 +1,82 @@
+"dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.3",
+    "nodemon": "^3.0.2"
+}
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+}
+
+WORKING
+**index.js**
+const port = 4000
+const express = require("express")
+const app = express()
+const bodyParser = require("body-parser")
+const prodRouter = require("./prodRouter")
+app.use(bodyParser.json())
+app.use("/", prodRouter)
+require("./db")
+app.listen(port, () => {
+    console.log(`running ${port
+    }`)
+})
+
+**prodRouter.js**
+const router = require("express").Router();
+const prodController = require("./prodController");
+
+router.get("/products", prodController.getAll)
+
+module.exports = router
+
+**prodModel.js**
+const mongoose = require("mongoose");
+
+
+const userSchema = mongoose.Schema(
+
+    {
+        name: String,
+},
+{ collection: "products", timestamps: true
+}
+);
+
+const Products = mongoose.model("products", userSchema);
+
+module.exports = Products;
+
+
+
+**prodController.js**
+const Products = require("./prodModel")
+
+
+const getAll = async (req, res) => {
+    let all = await Products.find({})
+    console.log(all)
+    res.send(all)
+}
+
+
+module.exports = { getAll
+}
+
+
+**db.js**
+const mongoose = require("mongoose")
+require("dotenv").config()
+console.log(process.env.MONGODB)
+mongoose.connect(process.env.MONGODB).then(() => {
+    console.log("connected")
+})
+
+
+**.env**
+MONGODB="mongodb+srv://ismylsmylv:h%40d3s@main.3o3q1k8.mongodb.net/products?retryWrites=true&w=majority"
