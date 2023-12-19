@@ -6,6 +6,8 @@ const prodRouter = require("./prodRouter")
 app.use(bodyParser.json())
 app.use("/", prodRouter)
 require("./db")
+const Products = require("./prodModel")
+
 app.listen(port, () => {
     console.log(`running ${port}`)
 })
