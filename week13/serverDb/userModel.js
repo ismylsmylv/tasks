@@ -4,12 +4,12 @@ const mongoose = require("mongoose");
 const userSchema = mongoose.Schema(
 
     {
-        username: String,
+        name: String,
     },
 
-    { collection: "Datas", timestamps: true }
+    { collection: "this.APICALL", timestamps: true }
 );
 
-const Products = mongoose.model("Datas", userSchema);
+const Products = mongoose.model("APICALL", userSchema);
 
 module.exports = Products;
