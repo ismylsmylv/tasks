@@ -1,0 +1,35 @@
+.artists {
+    padding-top: 50px;
+    margin: 0 auto;
+    width: 80%;
+
+    .search {
+        padding: 10px 5px;
+        margin-right: 10px;
+    }
+
+    .singers {
+        padding-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        flex-wrap: wrap;
+
+        .card {
+            margin: 20px;
+        }
+    }
+
+    .cardActions {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .deleteBtn {
+        background-color: red;
+        padding: 10px 10px;
+        border-radius: 5px;
+        color: white;
+    }
+}

@@ -1,0 +1,2 @@
+sort, search, details
+search get name query ilə
