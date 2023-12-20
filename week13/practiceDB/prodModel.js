@@ -5,6 +5,7 @@ const userSchema = mongoose.Schema(
 
     {
         name: String,
+        price: Number
     },
 
     { collection: "products", timestamps: true }

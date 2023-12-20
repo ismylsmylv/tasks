@@ -2,31 +2,19 @@ const Products = require("./prodModel")
 
 
 const getAll = async (req, res) => {
-    if (!req.query?.name && !req.query?.price) {
-        let all = await Products.find({})
-        console.log(all)
-        res.send(all)
+    if (!req.query.name && !req.query.price) {
+        let all = await Products.find({});
+        console.log(all);
+        res.send(all);
+    } else if (req.query.price) {
+        let sent = await Products.find({ price: req.query.price });
+        console.log("price", sent);
+        res.send(sent);
+    } else if (req.query.name) {
+        let sent = await Products.find({ name: req.query.name });
+        console.log("name", sent);
+        res.send(sent)
     }
-    // if (req.query?.price) {
-    //     const sent = await Products.filter(elem => elem.price == req.query.price)
-    //     // const sent = Products
-    //     console.log("price")
-    //     res.send(sent)
-    // }
-    // else {
-    //     if (res.query?.price) {
-    //         const sent = await Products.filter(elem => elem.price == req.query.price)
-    //         // const sent = Products
-    //         console.log("price")
-    //         res.send(sent)
-    //     }
-    //     else {
-    //         const sent = await Products.filter(elem => elem.name.includes(req.query.name))
-    //         // const sent = Products
-    //         console.log("sent")
-    //         res.send(sent)
-    //     }
-    // }
 }
 
 
