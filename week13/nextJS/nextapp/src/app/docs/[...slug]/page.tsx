@@ -11,6 +11,8 @@ export default function Docs({
         docs for feature {params.slug[0]} {params.slug[1]}
       </h1>
     );
+  } else if (params.slug.length == 3) {
+    return <h1>docs for {params.slug[2]}</h1>;
   } else if (params.slug.length == 1) {
     return <h1>docs for {params.slug[0]}</h1>;
   }
