@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
+
 export default function ReviewId({
   params,
 }: {
   params: {
-    productID: String;
-    reviewId: String;
+    productID: string;
+    reviewId: string;
   };
 }) {
   if (parseInt(params.reviewId) > 1000) {

@@ -1,22 +1,35 @@
 import { Metadata } from "next";
 
-export const generateMetadata = async ({ params }: Props): Metadata => {
-  const title = await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(`order ${params.productID}`);
-    }, 100);
-  });
-  return {
-    title: `product ${title}`,
-  };
-};
-
 type Props = {
   params: {
     productID: string;
   };
 };
 
-export default function ProductDetials({ params }: Props) {
+function getRandomInt(count: number): number {
+  return Math.floor(Math.random() * count);
+}
+
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const title = await new Promise<string>((resolve) => {
+    setTimeout(() => {
+      resolve(`order ${params.productID}`);
+    }, 100);
+  });
+
+  return {
+    title: `product ${title}`,
+  };
+};
+
+const random = getRandomInt(2);
+
+if (random === 1) {
+  throw new Error("Error loading data");
+}
+
+export default function ProductDetails({ params }: Props) {
   return <h1>Prod details {params.productID}</h1>;
 }

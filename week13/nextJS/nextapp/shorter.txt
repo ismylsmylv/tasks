@@ -1,0 +1,53 @@
+Creating: npx create-next-app@latest (in case error npm install -g npm)
+
+Files should be inside app folder
+Static routing
+Pages are defined inside app folder, each with seperated folder and page.tsx file
+export default function Profile() {
+  return <h1>Profile</h1>;
+}
+
+Dynamic routing
+Folder named [id] inside parent, with usual page.tsx file
+Getting id: 
+export default function ProductDetials({
+  params,
+}: {
+  params: { productID: string };
+}) {
+  return <h1>Prod details {params.productID}</h1>;
+}
+
+Slugs are similar ti useParam:
+export default function Docs({
+  params,
+}: {
+  params: {
+    slug: string[];
+  };
+}) {
+  if (params.slug.length == 2) {
+    return (
+      <h1>
+        docs for feature {params.slug[0]} {params.slug[1]}
+      </h1>
+    );
+  } else if (params.slug.length == 3) {
+    return <h1>docs for {params.slug[2]}</h1>;
+  } else if (params.slug.length == 1) {
+    return <h1>docs for {params.slug[0]}</h1>;
+  }
+  return <h1>Docs page {params.slug}</h1>;
+}
+
+
+404 page: not-found.tsx
+
+Route group: (folder name)
+Special files: 
+page.tsx, 
+layout.tsx, 
+template.tsx, 
+not-found.tsx, 
+loading.tsx, 
+error.tsx
