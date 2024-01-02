@@ -1,0 +1,11 @@
+.prods {
+  padding: 20px;
+}
+
+.heading {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.prods ul {
+  list-style: none;
+}

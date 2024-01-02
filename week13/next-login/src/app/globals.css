@@ -30,3 +30,21 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40vh;
+}
+.error p {
+  font-size: 10rem;
+  font-weight: 600;
+  color: #3c4ee9;
+  cursor: pointer;
+}

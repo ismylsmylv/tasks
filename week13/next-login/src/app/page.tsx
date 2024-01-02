@@ -1,9 +1,11 @@
 "use client";
 import { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 export default function Home() {
   const [username, setusername] = useState("");
   const [pass, setpass] = useState("");
+  const router = useRouter();
   return (
     <div className="login">
       <h2>Login</h2>
@@ -35,6 +37,7 @@ export default function Home() {
                   pass == res.data[0].password
                 ) {
                   console.log("logged in");
+                  router.push("products");
                 } else {
                   console.log("invalid credential");
                 }
