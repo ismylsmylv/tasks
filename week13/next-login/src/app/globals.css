@@ -23,12 +23,12 @@ input {
 }
 
 button {
-  padding: 10px 15px;
-  border: none;
-  background-color: blue;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
+  padding: 10px 15px !important;
+  border: none !important;
+  background-color: #3c4ee9 !important;
+  color: white !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
 }
 * {
   margin: 0;
