@@ -1,10 +1,13 @@
+"use client";
 import Link from "next/link";
 import "./layout.css";
+import { useRouter } from "next/navigation";
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const router = useRouter();
   return (
     <html lang="en">
       <body>
@@ -12,16 +15,23 @@ export default function RootLayout({
           <h1>Sample</h1>
           <ul>
             <li>
-              <Link href={"/dashboard"}>Dashboard</Link>
+              <Link href={"/home/dashboard"}>Dashboard</Link>
             </li>
             <li>
-              <Link href={"/profile"}>Profile</Link>
+              <Link href={"/home/profile"}>Profile</Link>
             </li>
             <li>
-              <Link href={"/products"}>Products</Link>
+              <Link href={"/home/products"}>Products</Link>
             </li>
             <li>
-              <Link href={"/"}>Log out</Link>
+              <button
+                onClick={() => {
+                  localStorage.removeItem("loginID");
+                  router.push("/login");
+                }}
+              >
+                Log out
+              </button>
             </li>
           </ul>
         </header>
