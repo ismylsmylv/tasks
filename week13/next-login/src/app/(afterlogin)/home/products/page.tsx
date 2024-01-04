@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import Link from "next/link";
-import { logToConsole } from "@/app/lib/features/todosSlice";
+import { logToConsole } from "@/app/lib/reducers/todosSlice";
 // import { useAppSelector, useAppDispatch } from "../../../lib/hooks";
 interface Element {
   id: number;
