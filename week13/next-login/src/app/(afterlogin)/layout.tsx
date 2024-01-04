@@ -24,6 +24,9 @@ export default function RootLayout({
               <Link href={"/home/products"}>Products</Link>
             </li>
             <li>
+              <Link href={"/home/todo"}>Todo</Link>
+            </li>
+            <li>
               <button
                 onClick={() => {
                   localStorage.removeItem("loginID");
