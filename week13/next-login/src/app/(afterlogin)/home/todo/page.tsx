@@ -2,12 +2,20 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { adder } from "@/redux/slices/counterSlice";
+import { v4 as uuidv4 } from "uuid";
+import {
+  adder,
+  getter,
+  empty,
+  deleter,
+  editer,
+} from "@/redux/slices/counterSlice";
 import { useSelector } from "react-redux";
 export default function Todo() {
-  const todos = useSelector((state) => state.counter.todos);
+  const todos = useSelector((state: any) => state.counter.todos);
+  let todo = useSelector((state: any) => state.counter.todo);
   console.log();
-  const [todo, settodo] = useState("");
+  // const [todo, settodo] = useState("");
   const dispatch = useDispatch();
   return (
     <div>
@@ -16,22 +24,43 @@ export default function Todo() {
         placeholder="Add todo"
         value={todo}
         onChange={(e) => {
-          settodo(e.target.value);
+          dispatch(getter(e.target.value));
+          // settodo(e.target.value);
         }}
       />
       <button
         onClick={() => {
           // console.log(todo);
           dispatch(adder(todo));
-          settodo("");
+          // settodo("");
+          dispatch(empty());
         }}
       >
         Add
       </button>
       <ul>
         {todos &&
-          todos.map((elem, i) => {
-            return <li key={i}>{elem}</li>;
+          todos.map((elem: any) => {
+            return (
+              <li key={uuidv4()}>
+                {elem}{" "}
+                <button
+                  onClick={() => {
+                    dispatch(deleter(elem));
+                  }}
+                >
+                  Delete
+                </button>
+                <button
+                  onClick={() => {
+                    let editTodo = prompt("Edit todo");
+                    dispatch(editer([elem, editTodo]));
+                  }}
+                >
+                  Edit
+                </button>
+              </li>
+            );
           })}
       </ul>
     </div>

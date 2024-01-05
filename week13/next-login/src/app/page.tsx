@@ -7,7 +7,7 @@ function Sender() {
   const loginID = JSON.stringify(localStorage.getItem("loginID"));
   console.log(loginID);
 
-  if (loginID != null) {
+  if (loginID == null) {
     return (
       <div className="sender">
         <h1>Log in or sign up to continue</h1>
