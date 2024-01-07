@@ -1,0 +1,64 @@
+.login {
+  /* border: 1px solid red; */
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+input {
+  padding: 10px 15px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+button {
+  padding: 10px 15px !important;
+  border: none !important;
+  background-color: #3c4ee9 !important;
+  color: white !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40vh;
+}
+.error p {
+  font-size: 10rem;
+  font-weight: 600;
+  color: #3c4ee9;
+  cursor: pointer;
+}
+
+.sender {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 100px auto;
+}
+.sender h1 {
+  margin-bottom: 20px;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
