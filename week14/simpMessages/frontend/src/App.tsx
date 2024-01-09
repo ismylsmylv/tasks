@@ -8,7 +8,7 @@ function App() {
   const [socket, setsocket] = useState(undefined);
   const [inbox, setinbox] = useState([]);
   // const [room, setRoom] = useState(0);
-let isEmpty=false
+  let isEmpty = false;
   const handleSendMessage = () => {
     console.log("message", message); //, room
     socket.emit("message", message);
@@ -29,9 +29,14 @@ let isEmpty=false
       <div className="messageBox">
         <div className="messagesList">
           <div className="messages">
-            {inbox && (
-              if()
-            )}
+            {inbox &&
+              inbox.map((elem) => {
+                return (
+                  <div className="message" key={uuidv4()}>
+                    {elem}
+                  </div>
+                );
+              })}
           </div>
         </div>
         <form className="inputForm">
