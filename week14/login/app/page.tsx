@@ -1,6 +1,27 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAJSzcOhuqHqUubEeDuO57PbqhC43EETps",
+  authDomain: "basicdatabase-61a04.firebaseapp.com",
+  projectId: "basicdatabase-61a04",
+  storageBucket: "basicdatabase-61a04.appspot.com",
+  messagingSenderId: "280625333326",
+  appId: "1:280625333326:web:a7fb8a516bb62a3bb4ef1f",
+  measurementId: "G-G4KGMDMK2V",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 export default function Home() {
   const router = useRouter();
   return (

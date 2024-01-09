@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express();
 const multer = require("multer");
+const cors = require('cors');
 const port = 4000;
 // const upload = multer({ dest: "uploads/" });
 const fs = require("fs")
 // Require the upload middleware
 // const upload = require('./upload');
 const arr = []
-
+app.use(cors());
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         const uploadFolder = "./uploads/";
@@ -32,6 +33,7 @@ app.use('/uploads', express.static('uploads'));
 //     res.json({ message: 'File uploaded successfully!' });
 // });
 app.get('/', (req, res) => {
+    res.set('Access-Control-Allow-Origin', 'http://localhost:4000/upload');
     return res.send('Received a GET HTTP method');
 });
 
@@ -43,7 +45,9 @@ app.post('/upload', upload.single('file'), (req, res) => {
         title: title,
         imagePath: req.file.path
     }
+    res.set('Access-Control-Allow-Origin', 'http://localhost:4000/upload');
     arr.push(newProd)
+    console.log(req.file.path)
     res.sendFile(req.body)
     res.json({ message: 'File uploaded successfully!' });
     req.send({
