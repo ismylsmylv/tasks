@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import "./App.css";
 import "./style.scss";
-// import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 function App() {
   const [message, setMessage] = useState("");
   const [socket, setsocket] = useState(undefined);
   const [inbox, setinbox] = useState([]);
-  const [room, setRoom] = useState(0);
-
+  // const [room, setRoom] = useState(0);
+let isEmpty=false
   const handleSendMessage = () => {
-    console.log("message", message, room);
-    socket.emit("message", message, room);
+    console.log("message", message); //, room
+    socket.emit("message", message);
   };
 
   useEffect(() => {
@@ -29,22 +29,9 @@ function App() {
       <div className="messageBox">
         <div className="messagesList">
           <div className="messages">
-            {inbox &&
-              inbox.map((elem, i) => {
-                return (
-                  <div className="message" key={elem}>
-                    {elem}
-                  </div>
-                );
-              })}
-            {/* <div className="inboxMessage message">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum,
-            sapiente.
-          </div>
-          <div className="outboxMessage message">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
-            obcaecati?
-          </div> */}
+            {inbox && (
+              if()
+            )}
           </div>
         </div>
         <form className="inputForm">
@@ -62,7 +49,7 @@ function App() {
               e.preventDefault();
               handleSendMessage();
               setMessage("");
-              // setisSend(!isSend);
+              window.scrollTo(0, document.body.scrollHeight);
             }}
           >
             <svg
@@ -79,10 +66,6 @@ function App() {
           </button>
         </form>
       </div>
-
-      {/* <ul>
-       
-      </ul> */}
     </>
   );
 }

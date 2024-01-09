@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: space-between;
     // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: white;
 
     .messagesList {
         height: max-content;
@@ -17,16 +18,18 @@
         width: 100%;
 
         .messages {
-            display: grid
+            display: grid;
+            width: 100%;
         }
 
         .message {
             padding: 10px;
             border-radius: 10px;
             margin-bottom: 10px;
-            width: 40%;
-
+            width: 45%;
+            text-wrap: wrap;
             // background-color: white;
+
 
             &:nth-child(even) {
                 background-color: rgb(80, 80, 255);
@@ -34,6 +37,9 @@
                 border-color: rgb(80, 80, 255);
                 margin-right: 0;
                 justify-self: start;
+                word-wrap: break-word;
+                overflow: hidden;
+                border-bottom-left-radius: 0;
 
             }
 
@@ -43,7 +49,9 @@
                 color: black;
                 border-color: rgb(197, 197, 197);
                 justify-self: end;
-
+                word-wrap: break-word;
+                overflow: hidden;
+                border-bottom-right-radius: 0;
             }
 
         }
@@ -98,7 +106,37 @@
             width: 93%;
             border: 1px solid rgb(197, 197, 197);
             border-radius: 5px;
+
+            &:focus {
+                outline: none !important;
+                border: 1px solid rgb(80, 80, 255);
+            }
         }
 
+    }
+
+    ::-webkit-scrollbar {
+        width: 0;
+    }
+}
+
+body {
+    background: linear-gradient(-45deg, #5289ee, #4238d4, #a60db4, #9737aa);
+    background-size: 400% 400%;
+    animation: gradient 7s ease infinite;
+
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
     }
 }
