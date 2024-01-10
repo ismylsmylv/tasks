@@ -1,0 +1,32 @@
+.authorsPage {
+    margin: 0 auto;
+    width: 70%;
+    padding: 30px;
+
+    .search {
+        background-color: white !important;
+        margin-right: 20px;
+    }
+
+    .filters {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        padding: 0 20px;
+    }
+
+    .dropDown {
+        width: 10%;
+    }
+
+    .cards {
+        padding-top: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: left;
+        gap: 30px;
+    }
+
+}
