@@ -1,6 +1,10 @@
 .card {
     color: black !important;
 
+    .authName {
+        cursor: pointer;
+    }
+
     .deleteBtn {
         background-color: rgb(134, 17, 17);
         color: white;

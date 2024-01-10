@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import Card from "../../components/Card/page";
 import TextField from "@mui/material/TextField";
@@ -8,7 +8,19 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+import { useAppDispatch, useAppSelector } from "@/app/redux/hooks";
+import { getAuth, searchAuth } from "@/app/redux/counterSlice";
 export default function Authors() {
+  const dispatch = useAppDispatch();
+  // const [datas, setdatas] = useState([]);
+  useEffect(() => {
+    dispatch(getAuth());
+    console.log(datas);
+  }, []);
+
+  const datas = useAppSelector((state) => state.counter.datas);
   const [Gender, setGender] = React.useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -23,6 +35,9 @@ export default function Authors() {
             id="outlined-basic"
             label="Search author"
             variant="outlined"
+            onChange={(e) => {
+              dispatch(searchAuth(e.target.value.trim()));
+            }}
           />
         </div>
         <div className="dropDown">
@@ -45,9 +60,11 @@ export default function Authors() {
         </div>
       </div>
       <div className="cards">
-        <Card />
-        <Card />
-        <Card />
+        {datas &&
+          datas.map((elem) => {
+            console.log(datas);
+            return <Card key={uuidv4()} elem={elem} />;
+          })}
       </div>
     </div>
   );
