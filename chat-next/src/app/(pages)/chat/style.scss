@@ -1,0 +1,154 @@
+.messageBox {
+    color: black !important;
+    margin: 100px auto;
+    width: 40%;
+    border-radius: 10px;
+    border: 1px solid rgb(197, 197, 197);
+    padding: 10px;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: white;
+
+    .messagesList {
+        height: max-content;
+        overflow-y: scroll;
+        width: 100%;
+
+        .messages {
+            display: grid;
+            width: 100%;
+        }
+
+        .message {
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            width: 45%;
+            text-wrap: wrap;
+            // background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+
+        }
+
+        .recieved {
+            background-color: rgb(80, 80, 255);
+            color: white;
+            border-color: rgb(80, 80, 255);
+            margin-right: 0;
+            justify-self: start;
+            word-wrap: break-word;
+            overflow: hidden;
+            border-bottom-left-radius: 0;
+
+        }
+
+        .sent {
+            border: 1px solid rgb(197, 197, 197);
+            background-color: white;
+            color: black;
+            border-color: rgb(197, 197, 197);
+            justify-self: end;
+            word-wrap: break-word;
+            overflow: hidden;
+            border-bottom-right-radius: 0;
+        }
+
+
+    }
+
+
+    // .inboxMessage {
+    //     background-color: rgb(80, 80, 255);
+    //     color: white;
+    //     border-color: rgb(80, 80, 255);
+    // }
+
+    .inputForm {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 5px;
+
+
+        button {
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            border: 1px solid rgb(80, 80, 255);
+            outline: none;
+            transition: 300ms linear;
+            background-color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                margin: 0;
+                padding: 0;
+
+                path {
+                    fill: rgb(80, 80, 255);
+                }
+            }
+
+            &:hover {
+                background-color: rgb(80, 80, 255);
+                align-self: flex-end;
+
+                svg path {
+                    fill: white;
+                }
+            }
+        }
+
+        input {
+            padding: 10px;
+            width: 60%;
+            border: 1px solid rgb(197, 197, 197);
+            border-radius: 5px;
+
+            &:focus {
+                outline: none !important;
+                border: 1px solid rgb(80, 80, 255);
+            }
+        }
+
+        .nameInp {
+            width: 25%;
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 0;
+    }
+}
+
+body {
+    background: linear-gradient(-45deg, #5289ee, #4238d4, #a60db4, #9737aa);
+    background-size: 400% 400%;
+    animation: gradient 7s ease infinite;
+
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

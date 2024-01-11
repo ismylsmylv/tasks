@@ -1,0 +1,62 @@
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 100px auto;
+    width: 70%;
+    color: white;
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        input {
+            border: none;
+            border-radius: 3px;
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px 15px;
+            color: white;
+            background-color: blue;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+    .break {
+        width: 60%;
+        height: 2px;
+        background-color: white;
+        margin: 30px 0;
+    }
+
+    .loginThird {
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: 200ms linear;
+
+        svg {}
+
+        &:hover {
+            background-color: blue;
+        }
+    }
+}
