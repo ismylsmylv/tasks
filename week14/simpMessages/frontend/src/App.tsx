@@ -3,26 +3,45 @@ import { io } from "socket.io-client";
 import "./App.css";
 import "./style.scss";
 import { v4 as uuidv4 } from "uuid";
+interface Message {
+  id: string;
+  msg: string;
+  name: string;
+  message: string;
+}
 function App() {
-  const [message, setMessage] = useState("");
-  const [socket, setsocket] = useState(undefined);
-  const [inbox, setinbox] = useState([]);
+  const [message, setMessage] = useState<string>("");
+  const [messageId, setMessageId] = useState<string | never>("");
+  const [name, setName] = useState<string>("");
+  const [socket, setsocket] = useState<never | undefined>(undefined);
+  const [inbox, setinbox] = useState<Message[]>([]);
   // const [room, setRoom] = useState(0);
-  let isEmpty = false;
   const handleSendMessage = () => {
     console.log("message", message); //, room
-    socket.emit("message", message);
+    const messageObj = {
+      id: messageId,
+      message: message,
+      name: name,
+    };
+    socket.emit("message", messageObj);
   };
 
   useEffect(() => {
     const socket = io("http://localhost:3000/");
-
+    socket.on("connect", () => {
+      console.log(socket.id);
+      setMessageId(socket.id);
+      setName(name);
+    });
     socket.on("message", (message) => {
-      setinbox([...inbox, message]);
+      setinbox(message);
     });
 
     setsocket(socket);
-  }, [inbox]);
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
 
   return (
     <>
@@ -31,15 +50,38 @@ function App() {
           <div className="messages">
             {inbox &&
               inbox.map((elem) => {
-                return (
-                  <div className="message" key={uuidv4()}>
-                    {elem}
-                  </div>
-                );
+                if (elem.name == name) {
+                  console.log(elem.id);
+                  return (
+                    <div className="message sent" key={uuidv4()}>
+                      {elem.message}
+                      <br />
+                      {elem.name}
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div className="message recieved" key={uuidv4()}>
+                      {elem.message}
+                      <br />
+                      {elem.name}
+                    </div>
+                  );
+                }
               })}
           </div>
         </div>
         <form className="inputForm">
+          <input
+            className="nameInp"
+            type="text"
+            placeholder="Username"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+              console.log(message);
+            }}
+          />
           <input
             type="text"
             placeholder="Enter message"
@@ -49,12 +91,13 @@ function App() {
               console.log(message);
             }}
           />
+
           <button
             onClick={(e) => {
               e.preventDefault();
               handleSendMessage();
               setMessage("");
-              window.scrollTo(0, document.body.scrollHeight);
+              // window.scrollTo(0, document.body.scrollHeight);
             }}
           >
             <svg

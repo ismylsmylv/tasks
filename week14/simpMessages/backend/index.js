@@ -11,16 +11,17 @@ const io = new Server(server, {
     },
 });
 
-
+let arr = [];
 io.on("connection", (socket) => {
     console.log("a user connected", socket.id);
 
     socket.on("message", (message) => {
         console.log(message, socket.id);
-        io.emit("message", message);
+        arr.push(message)
+        io.emit("message", arr);
     });
 });
 
-server.listen(3000, "0.0.0.0", () => {
+server.listen(3000, () => {
     console.log(`Example app listening on port`);
 });
